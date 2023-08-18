@@ -3,11 +3,11 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
-export default function Navigation({ navLinks, styles }) {
+export default function Navigation({ navLinks, style }) {
     const pathname = usePathname()
 
     return (
-        <nav className={styles}>
+        <nav className={style}>
             {navLinks.map((link) => {
                 const isActive = pathname === link.href
                 if (!isActive) {

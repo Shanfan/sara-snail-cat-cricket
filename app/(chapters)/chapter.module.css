@@ -59,6 +59,12 @@
     text-decoration: underline;
 }
 
+.chapterHeader {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
 /* Container Utilitiy */
 .row {
     /* row streches all the way to occupy the entire width */

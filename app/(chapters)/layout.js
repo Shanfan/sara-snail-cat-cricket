@@ -16,7 +16,7 @@ export default function ChapterLayout({ children }) {
     return (
         <>
             <Navigation
-                styles={styles.navbar}
+                style={styles.navbar}
                 navLinks={navLinks}
             />
 
@@ -24,7 +24,7 @@ export default function ChapterLayout({ children }) {
 
             <div className={`${styles.row} ${styles.white}`}>
                 <PageTurner
-                    styles={`${styles.pageTurner}`}
+                    style={`${styles.pageTurner}`}
                 />
             </div>
         </>

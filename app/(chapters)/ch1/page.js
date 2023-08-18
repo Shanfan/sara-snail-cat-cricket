@@ -1,7 +1,6 @@
 import ChapterHeader from "@/util/ChapterHeader";
 import styles from "../chapter.module.css";
 import { Sedgwick_Ave } from 'next/font/google';
-import ChapterLayout from "../layout";
 import chapters from "@/util/chapterInfo";
 
 const sedgwick = Sedgwick_Ave({
@@ -12,11 +11,13 @@ const sedgwick = Sedgwick_Ave({
 
 export default function Ch1() {
     const currentChapter = chapters.one
-    console.log(currentChapter);
 
     return (
         <>
-            {/* <ChapterHeader currentChapter={one} /> */}
+            <ChapterHeader
+                currentChapter={chapters.one}
+                style={styles.chapterHeader} />
+
             <article className={sedgwick.className}>
                 <div className={`${styles.row} ${styles.black}`}>
                     <div className={styles.narrow}>
