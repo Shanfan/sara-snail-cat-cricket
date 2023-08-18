@@ -1,0 +1,210 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--ui-border-color);
+}
+
+.navbar * {
+    display: block;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--ui-border-color);
+    color: #222;
+    text-decoration: none;
+}
+
+.navbar a {
+    color: #A3A197;
+}
+
+.navbar a:hover {
+    color: #222;
+    background-color: var(--paper-tinted);
+}
+
+.navbar *:last-child {
+    margin-left: auto;
+    border-left: 1px solid var(--ui-border-color);
+
+}
+
+.navbar div {
+    border-bottom: #222 2px solid;
+}
+
+
+/* Container Styles */
+.row {
+    /* row streches all the way to occupy the entire width */
+    position: relative;
+    width: 100%;
+}
+
+.wide,
+.narrow {
+    margin: 0 auto;
+    padding: 0.2rem 0;
+    text-align: center;
+}
+
+.wide {
+    max-width: 1240px;
+    width: 100%;
+}
+
+.narrow {
+    max-width: 930px;
+    width: 75%;
+}
+
+.white {
+    background-color: white;
+    color: #222;
+}
+
+.black {
+    background-color: black;
+    color: #eee;
+}
+
+.layers {
+    /* Use this to layer images and create animated effects*/
+    position: relative;
+}
+
+/* Typography */
+.narration {
+    font-size: 1.5rem;
+}
+
+.dialog {
+    font-size: 1.4rem;
+}
+
+/* Image Styles */
+.hero {
+    /* bleeding on small screen, go under .wide */
+    width: 100%;
+    height: auto;
+}
+
+.panelL {
+    /* full width on small screen, contained on large under .narrow */
+    width: 100%;
+    height: auto;
+    /* max-width: 800px; */
+}
+
+.panelM {
+    /* 1/2 of max row width on large screen */
+    width: 100%;
+    height: auto;
+    max-width: 453px;
+}
+
+.panelS {
+    /* 1/3 of max row width on large screen */
+    width: 100%;
+    height: auto;
+    max-width: 294px;
+}
+
+.onoma {
+    /* layers on top of main */
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+}
+
+.speech-bubble {
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    padding: 0.5em;
+    background-color: white;
+    border-radius: 5px;
+    border: 6px solid transparent;
+    /* border-image: url(./assets/speech.png) 33% stretch; */
+}
+
+.speech-bubble.right::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: -23px;
+    left: 40%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-image: url('./assets/speech-tail-right.png'); */
+}
+
+.speech-bubble.left::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: -23px;
+    left: 35%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-image: url('./assets/speech-tail-left.png'); */
+}
+
+.speech-bubble.left-top::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -23px;
+    left: 55%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-image: url('./assets/speech-tail-left-top.png'); */
+}
+
+/* UI Styles */
+.link-group {
+    margin: 0 auto;
+}
+
+.link-group a {
+    display: inline-block;
+    text-decoration: none;
+    border-color: transparent;
+    font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    padding: 0.75em 1.25em;
+    text-transform: uppercase;
+    color: #9e9e9e;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: 2em;
+}
+
+.link-group a:hover {
+    color: white;
+    background-color: #222;
+}
+
+.link-group a:first-child {
+    border-radius: 1.5em 0 0 1.5em;
+    padding-left: 2.5em;
+    /* background-image: url('./assets/icons/chevron_left.svg'); */
+    background-position-x: left;
+}
+
+.link-group a:last-child {
+    border-radius: 0 1.5rem 1.5rem 0;
+    padding-right: 2.5em;
+    /* background-image: url('./assets/icons/chevron_right.svg'); */
+    background-position-x: right;
+}
+
+.articleEnd {
+    margin-top: 3rem;
+}
