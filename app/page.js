@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { Rock_Salt } from 'next/font/google'
 import styles from './page.module.css'
-import Navigation from '../util/Navigation.js'
-import chapters from '../util/chapterInfo.js'
-import heroImg from '../public/ch0_title.png'
+import Navigation from '@/util/Navigation'
+import chapters from "@/util/chapterInfo"
+import heroImg from '@/public/ch0_title.png'
 
 const rockSalt = Rock_Salt({
   subsets: ['latin'],

@@ -1,8 +1,18 @@
-import chapters from "@/util/chapterInfo";
-import ChapterHeader from "@/util/ChapterHeader";
 import styles from "../chapter.module.css";
 import { Sedgwick_Ave } from 'next/font/google';
 import Image from "next/image";
+
+import chapters from "@/util/chapterInfo";
+import ChapterHeader from "@/util/ChapterHeader";
+import importAllImages from "@/util/importImages";
+
+const images = importAllImages(
+    require.context(
+        '@/public/ch1/',
+        false,
+        /\.(png|jpe?g|svg)$/
+    )
+);
 
 const sedgwick = Sedgwick_Ave({
     subsets: ['latin'],
@@ -11,7 +21,6 @@ const sedgwick = Sedgwick_Ave({
 })
 
 export default function Ch1() {
-
     return (
         <>
             <div className={`${styles.row} ${styles.black}`}>
@@ -31,7 +40,7 @@ export default function Ch1() {
                     <div className={styles.wide}>
                         <Image
                             alt="A drawing of a snail sleeping on top of a leaf. A dewdrop drapes down another grass leaf. Moon hangs in the starry sky."
-                            src="../public/ch1/ch1_sn00_pn00.jpg"
+                            src={images['./ch1_sn00_pn00.jpg']}
                             className={styles.hero}
                         />
                     </div>
