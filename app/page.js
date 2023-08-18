@@ -18,8 +18,6 @@ const chapterLinks = Object.values(chapters).map(
 const navLinks = [...chapterLinks, { 'name': 'About', 'href': '/about' }]
 
 export default function Home() {
-
-  // const currentChapter = chapters.one;
   return (
     <main className={styles.main}>
       <div className={styles.hero}>
@@ -33,7 +31,6 @@ export default function Home() {
         <Image
           src={heroImg}
           alt="Cat Cricket talks to Sara Snail"
-          placeholder='blur'
           fill
           priority
           style={{
@@ -45,7 +42,7 @@ export default function Home() {
           An Interative Comic Book by Shanfan Huang
         </h2>
       </div>
-      <Navigation styles={styles.navbar} navLinks={navLinks} currentChapter='' />
+      <Navigation style={styles.navbar} navLinks={navLinks} currentChapter='' />
     </main >
   )
 }

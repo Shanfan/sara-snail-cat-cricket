@@ -2,6 +2,7 @@ import chapters from "@/util/chapterInfo";
 import ChapterHeader from "@/util/ChapterHeader";
 import styles from "../chapter.module.css";
 import { Sedgwick_Ave } from 'next/font/google';
+import Image from "next/image";
 
 const sedgwick = Sedgwick_Ave({
     subsets: ['latin'],
@@ -10,14 +11,14 @@ const sedgwick = Sedgwick_Ave({
 })
 
 export default function Ch1() {
-    const currentChapter = chapters.one
 
     return (
         <>
-            <ChapterHeader
-                currentChapter={chapters.one}
-                style={styles.chapterHeader} />
-
+            <div className={`${styles.row} ${styles.black}`}>
+                <ChapterHeader
+                    currentChapter={chapters.one}
+                    style={styles.chapterHeader} />
+            </div>
             <article className={sedgwick.className}>
                 <div className={`${styles.row} ${styles.black}`}>
                     <div className={styles.narrow}>
@@ -26,6 +27,13 @@ export default function Ch1() {
                             The air finally cooled down.<br />
                             The grassland glistened with dewdrops.<br />
                         </p>
+                    </div>
+                    <div className={styles.wide}>
+                        <Image
+                            alt="A drawing of a snail sleeping on top of a leaf. A dewdrop drapes down another grass leaf. Moon hangs in the starry sky."
+                            src="../public/ch1/ch1_sn00_pn00.jpg"
+                            className={styles.hero}
+                        />
                     </div>
                 </div>
             </article>
