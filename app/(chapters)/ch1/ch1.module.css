@@ -1,0 +1,111 @@
+/* Chapter-specific Styling */
+
+/* Dialogue Positioning */
+#ch1_sn05_pn00 {
+    top: 20%;
+    left: 40%;
+}
+
+#ch1_sn05_pn01_1 {
+    top: 5%;
+    left: 24%;
+}
+
+#ch1_sn05_pn01_2 {
+    bottom: 0;
+    left: 40%;
+}
+
+
+#sn06_first_contact {
+    padding: 5em 0;
+}
+
+#ch1_sn06_pn00_2 {
+    top: 0%;
+    left: 5%;
+    transform: rotate(15deg);
+    color: #d17f69;
+    background-color: #d4f2b7;
+}
+
+#ch1_sn06_pn00_3 {
+    top: 10%;
+    left: -10%;
+    width: 50%;
+    max-width: 15em;
+    transform: rotate(-5deg);
+}
+
+#ch1_sn06_pn00_4 {
+    bottom: 25px;
+    right: 25%;
+}
+
+#ch1_sn07_pn00,
+#ch1_sn07_pn01 {
+    height: 500px;
+    max-width: 600px;
+}
+
+#ch1_sn07_pn00 img {
+    position: absolute;
+    left: 0;
+    top: 250px;
+}
+
+#ch1_sn07_pn01 img {
+    position: absolute;
+    right: 0;
+    top: 200px;
+}
+
+#ch1_sn07_pn00 .speechBubble:nth-child(2) {
+    right: 0;
+    top: 2em;
+}
+
+#ch1_sn07_pn00 .speechBubble:nth-child(3) {
+    right: 5em;
+    top: 6em;
+}
+
+#ch1_sn07_pn01 .speechBubble {
+    left: 0;
+    max-width: 400px;
+}
+
+#cathy-debut {
+    animation: float 0.5s alternate infinite ease-in-out;
+}
+
+#ch1_sn02_flare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 66.7% 44.4%;
+    animation: flare 5s alternate infinite linear;
+}
+
+/* Animation Keyframes */
+@keyframes float {
+    from {
+        transform: translate(5px, -10px);
+    }
+
+    to {
+        transform: translate(0px, 5px);
+    }
+}
+
+@keyframes flare {
+    0% {
+        opacity: 0;
+        transform: rotate(36deg);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: rotate(10deg);
+    }
+}

@@ -97,7 +97,7 @@
 }
 
 .white {
-    background-color: var(--paper-color);
+    background-color: white;
     color: var(--link-active-color);
 }
 
@@ -112,8 +112,7 @@
 }
 
 /* Typography */
-.narration,
-.dialog {
+.narration {
     font-size: 1.2rem;
     line-height: 2em;
     letter-spacing: 0.25em;
@@ -153,9 +152,10 @@
     top: 0;
     left: 0;
     max-width: 100%;
+    height: auto
 }
 
-.speech-bubble {
+.speechBubble {
     position: absolute;
     text-align: center;
     display: inline-block;
@@ -163,10 +163,10 @@
     background-color: white;
     border-radius: 5px;
     border: 6px solid transparent;
-    /* border-image: url(./assets/speech.png) 33% stretch; */
+    border-image: url(../../public/speech.png) 33% stretch;
 }
 
-.speech-bubble.right::after {
+.speechBubble.right::after {
     content: '';
     position: absolute;
     width: 20px;
@@ -175,10 +175,10 @@
     left: 40%;
     background-repeat: no-repeat;
     background-size: contain;
-    /* background-image: url('./assets/speech-tail-right.png'); */
+    background-image: url('../../public/speech-tail-right.png');
 }
 
-.speech-bubble.left::after {
+.speechBubble.left::after {
     content: '';
     position: absolute;
     width: 20px;
@@ -187,10 +187,10 @@
     left: 35%;
     background-repeat: no-repeat;
     background-size: contain;
-    /* background-image: url('./assets/speech-tail-left.png'); */
+    background-image: url('../../public/speech-tail-left.png');
 }
 
-.speech-bubble.left-top::after {
+.speechBubble.leftTop::after {
     content: '';
     position: absolute;
     width: 20px;
@@ -199,5 +199,5 @@
     left: 55%;
     background-repeat: no-repeat;
     background-size: contain;
-    /* background-image: url('./assets/speech-tail-left-top.png'); */
+    background-image: url('../../public/speech-tail-left-top.png');
 }
