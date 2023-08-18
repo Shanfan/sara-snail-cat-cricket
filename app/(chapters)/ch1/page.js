@@ -1,7 +1,7 @@
+import chapters from "@/util/chapterInfo";
 import ChapterHeader from "@/util/ChapterHeader";
 import styles from "../chapter.module.css";
 import { Sedgwick_Ave } from 'next/font/google';
-import chapters from "@/util/chapterInfo";
 
 const sedgwick = Sedgwick_Ave({
     subsets: ['latin'],

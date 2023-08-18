@@ -15,18 +15,19 @@ const chapterInfo = {
         'name': 'Chapter 3',
         'href': '/ch3',
         'title': 'The Autumn Foliage',
+        'description': 'How To Compromise On Style And Win Friends',
     },
     four: {
         'name': 'Chapter 4',
         'href': '/ch4',
         'title': 'The September Issue',
-
+        'description': 'How To Live Fast And Take It Easy',
     },
     five: {
         'name': 'Chapter 5',
         'href': '/ch5',
         'title': 'The End of a Season',
-        'description': 'When the music stopped, how the party ended',
+        'description': 'How The Party Ended When The Music Stopped',
     }
 }
 

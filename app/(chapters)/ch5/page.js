@@ -1,7 +1,13 @@
+import chapters from "@/util/chapterInfo";
+import ChapterHeader from "@/util/ChapterHeader";
+import styles from "../chapter.module.css";
+
 export default function Ch5() {
     return (
         <>
-            <h1>Chapter 5. </h1>
+            <ChapterHeader
+                currentChapter={chapters.five}
+                style={styles.chapterHeader} />
         </>
     );
 }
