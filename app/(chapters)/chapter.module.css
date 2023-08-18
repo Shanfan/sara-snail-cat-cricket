@@ -97,7 +97,7 @@
 
 .black {
     background-color: black;
-    color: #eee;
+    color: var(--paper-color);
 }
 
 .layers {
@@ -110,6 +110,7 @@
 .dialog {
     font-size: 1.5rem;
     line-height: 2em;
+    letter-spacing: 0.25em;
 }
 
 /* Image Styles */

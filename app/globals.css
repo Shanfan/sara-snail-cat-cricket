@@ -23,8 +23,6 @@ body {
 
 footer {
   width: 100%;
-  position: absolute;
-  bottom: 0;
   border-top: var(--ui-border-color) 1px solid;
   padding: 0.5em 0;
   color: var(--info-text-color);
