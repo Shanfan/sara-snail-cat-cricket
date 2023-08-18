@@ -44,14 +44,29 @@ export default function Ch1() {
                     </div>
                     <div className={wide}>
                         <Image
-                            alt="A drawing of a snail sleeping on top of a leaf. A dewdrop drapes down another grass leaf. Moon hangs in the starry sky."
+                            alt="A snail sleeps on top of a leaf. A dewdrop drapes down from a grass leaf. Moon hangs in the starry sky."
                             src={images['./ch1_sn00_pn00.jpg']}
                             className={hero}
                             priority
                         />
                     </div>
                     <div className={narrow}>
-
+                        <p className={narration}>
+                            Sara Snail turns in early, as usual.
+                        </p>
+                        <Image
+                            alt="She blowed off the candle"
+                            className={panelM}
+                            src={images["./ch1_sn01_pn00.png"]}
+                        />
+                        <Image
+                            alt="and lied down in bed comfortably"
+                            className={panelM}
+                            src={images["./ch1_sn01_pn01.png"]} />
+                        <p className={narration}>
+                            As you can tell, she&rsquo;s made her home so comfy
+                            that if I were her I would turn in early every night too.
+                        </p>
                     </div>
                 </div>
             </article>

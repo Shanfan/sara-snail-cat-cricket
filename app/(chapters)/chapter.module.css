@@ -63,7 +63,13 @@
     position: relative;
     margin: 0 auto;
     text-align: center;
-    padding: 3em 0;
+    padding-top: 3em;
+}
+
+.chapterHeader::after {
+    content: '☙ ☙ ☙';
+    font-size: 2em;
+    line-height: 5em;
 }
 
 /* Container Utilitiy */
@@ -76,7 +82,7 @@
 .wide,
 .narrow {
     margin: 0 auto;
-    padding: 0.2rem 0;
+    padding: 2rem 0;
     text-align: center;
 }
 
@@ -96,8 +102,8 @@
 }
 
 .black {
-    background-color: black;
     color: var(--paper-color);
+    background-color: black;
 }
 
 .layers {
@@ -108,7 +114,7 @@
 /* Typography */
 .narration,
 .dialog {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 2em;
     letter-spacing: 0.25em;
 }
