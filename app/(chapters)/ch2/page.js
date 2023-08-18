@@ -1,11 +1,12 @@
-
-
-export default function Ch1() {
+import styles from "../chapter.module.css";
+export default function Ch2() {
     return (
         <>
-            <h1>Chapter 2. The Summer Dance</h1>
-
-
+            <header className={styles.row}>
+                <div className={styles.narrow}>
+                    <h1>Coming Soon!</h1>
+                </div>
+            </header>
         </>
     );
 }

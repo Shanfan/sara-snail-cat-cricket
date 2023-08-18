@@ -11,9 +11,15 @@ const rockSalt = Rock_Salt({
   weight: '400'
 })
 
-const navLinks = chapters;
+const chapterLinks = Object.values(chapters).map(
+  chapter => ({ 'name': chapter.name, 'href': chapter.href })
+)
+
+const navLinks = [...chapterLinks, { 'name': 'About', 'href': '/about' }]
 
 export default function Home() {
+
+  // const currentChapter = chapters.one;
   return (
     <main className={styles.main}>
       <div className={styles.hero}>
@@ -27,7 +33,7 @@ export default function Home() {
         <Image
           src={heroImg}
           alt="Cat Cricket talks to Sara Snail"
-          // placeholder='blur'
+          placeholder='blur'
           fill
           priority
           style={{
@@ -39,7 +45,7 @@ export default function Home() {
           An Interative Comic Book by Shanfan Huang
         </h2>
       </div>
-      <Navigation styles={styles.navbar} navLinks={navLinks} />
+      <Navigation styles={styles.navbar} navLinks={navLinks} currentChapter='' />
     </main >
   )
 }

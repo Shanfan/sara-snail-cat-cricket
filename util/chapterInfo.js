@@ -1,30 +1,33 @@
-const chapterInfo = [
-    {
+const chapterInfo = {
+    one: {
         'name': 'Chapter 1',
         'href': '/ch1',
         'title': 'The Clash',
         'description': 'How Sara Snail Met Cat Cricket',
-    }, {
+    },
+    two: {
         'name': 'Chapter 2',
         'href': '/ch2',
         'title': 'The Summer Dance',
         'description': 'How Sara Snail And Cat Cricket Hit It Off',
-    }, {
+    },
+    three: {
         'name': 'Chapter 3',
-        'href': '/ch2',
-    }, {
+        'href': '/ch3',
+        'title': 'The Autumn Foliage',
+    },
+    four: {
         'name': 'Chapter 4',
-        'href': '/ch2',
-    }, {
-        'name': 'Chapter 5',
-        'href': '/ch2',
-    }, {
-        'name': 'About',
-        'href': '/about',
-        'title': ' ',
-        'description': ' ',
-    }
+        'href': '/ch4',
+        'title': 'The September Issue',
 
-]
+    },
+    five: {
+        'name': 'Chapter 5',
+        'href': '/ch5',
+        'title': 'The End of a Season',
+        'description': 'When the music stopped, how the party ended',
+    }
+}
 
 export default chapterInfo;

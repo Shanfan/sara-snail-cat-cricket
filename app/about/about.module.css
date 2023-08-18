@@ -1,0 +1,33 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--ui-border-color);
+}
+
+.navbar * {
+    display: block;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--ui-border-color);
+    color: #222;
+    text-decoration: none;
+}
+
+.navbar a {
+    color: #A3A197;
+}
+
+.navbar a:hover {
+    color: #222;
+    background-color: var(--paper-tinted);
+}
+
+.navbar *:last-child {
+    margin-left: auto;
+    border-left: 1px solid var(--ui-border-color);
+    background-color: #222;
+    color: white;
+}

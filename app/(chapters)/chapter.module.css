@@ -1,8 +1,8 @@
+/* UI Styles */
 .navbar {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    border-bottom: 1px solid var(--ui-border-color);
 }
 
 .navbar * {
@@ -12,16 +12,16 @@
     align-items: center;
     justify-content: center;
     border-right: 1px solid var(--ui-border-color);
-    color: #222;
+    color: var(--link-active-color);
     text-decoration: none;
 }
 
 .navbar a {
-    color: #A3A197;
+    color: var(--link-color);
 }
 
 .navbar a:hover {
-    color: #222;
+    color: var(--link-active-color);
     background-color: var(--paper-tinted);
 }
 
@@ -32,11 +32,34 @@
 }
 
 .navbar div {
-    border-bottom: #222 2px solid;
+    color: var(--link-active-color);
+    border-bottom: var(--link-active-color) 2px solid;
 }
 
+.pageTurner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-/* Container Styles */
+.pageTurner a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 1em 1.5em;
+    text-transform: uppercase;
+    color: var(--link-color);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: 2em;
+}
+
+.pageTurner a:hover {
+    color: var(--link-active-color);
+    text-decoration: underline;
+}
+
+/* Container Utilitiy */
 .row {
     /* row streches all the way to occupy the entire width */
     position: relative;
@@ -61,8 +84,8 @@
 }
 
 .white {
-    background-color: white;
-    color: #222;
+    background-color: var(--paper-color);
+    color: var(--link-active-color);
 }
 
 .black {
@@ -76,12 +99,10 @@
 }
 
 /* Typography */
-.narration {
-    font-size: 1.5rem;
-}
-
+.narration,
 .dialog {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    line-height: 2em;
 }
 
 /* Image Styles */
@@ -165,46 +186,4 @@
     background-repeat: no-repeat;
     background-size: contain;
     /* background-image: url('./assets/speech-tail-left-top.png'); */
-}
-
-/* UI Styles */
-.link-group {
-    margin: 0 auto;
-}
-
-.link-group a {
-    display: inline-block;
-    text-decoration: none;
-    border-color: transparent;
-    font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    font-size: 0.75rem;
-    padding: 0.75em 1.25em;
-    text-transform: uppercase;
-    color: #9e9e9e;
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-size: 2em;
-}
-
-.link-group a:hover {
-    color: white;
-    background-color: #222;
-}
-
-.link-group a:first-child {
-    border-radius: 1.5em 0 0 1.5em;
-    padding-left: 2.5em;
-    /* background-image: url('./assets/icons/chevron_left.svg'); */
-    background-position-x: left;
-}
-
-.link-group a:last-child {
-    border-radius: 0 1.5rem 1.5rem 0;
-    padding-right: 2.5em;
-    /* background-image: url('./assets/icons/chevron_right.svg'); */
-    background-position-x: right;
-}
-
-.articleEnd {
-    margin-top: 3rem;
 }
