@@ -129,7 +129,7 @@
     /* full width on small screen, contained on large under .narrow */
     width: 100%;
     height: auto;
-    /* max-width: 800px; */
+    max-width: 800px;
 }
 
 .panelM {
@@ -158,6 +158,8 @@
 .speechBubble {
     position: absolute;
     text-align: center;
+    line-height: 1.6em;
+    letter-spacing: 1px;
     display: inline-block;
     padding: 0.5em;
     background-color: white;
@@ -200,4 +202,26 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url('../../public/speech-tail-left-top.png');
+}
+
+@keyframes float {
+    from {
+        transform: translate(5px, -10px);
+    }
+
+    to {
+        transform: translate(0px, 5px);
+    }
+}
+
+@keyframes flare {
+    0% {
+        opacity: 0;
+        transform: rotate(36deg);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: rotate(10deg);
+    }
 }

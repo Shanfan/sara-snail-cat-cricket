@@ -22,7 +22,8 @@ const sedgwick = Sedgwick_Ave({
 })
 
 const { row, wide, narrow, white, black, layers, main, onoma,
-    narration, speechBubble, hero, panelL, panelM, panelS
+    narration, speechBubble, right, left, leftTop,
+    hero, panelL, panelM, panelS, float, flare
 } = styles
 
 export default function Ch1() {
@@ -98,8 +99,18 @@ export default function Ch1() {
                             Sara Snail generally lives a stress-free life.</p>
                     </div>
                     <div className={`${wide} ${layers}`}>
-                        <Image className={hero} src={images['./ch1_sn02_pn00.jpg']} alt="A sunny day has begun." />
-                        {/* <Image className={hero} id="ch1_sn02_flare" src={images['./ch1_sn02_pn00_shine.png']} alt="lens flare" /> */}
+                        <Image src={images['./ch1_sn02_pn00.jpg']} alt="A sunny day has begun." />
+                        <Image
+                            src={images['./ch1_sn02_pn00_shine.png']}
+                            alt="lens flare"
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                transformOrigin: '66.7% 44.4%',
+                                animation: `${flare} 5s alternate infinite linear`
+                            }}
+                        />
                     </div>
                 </div>
 
@@ -120,7 +131,11 @@ export default function Ch1() {
                 <div className={`${row} ${white}`} id="sn03_disturbed_tea">
                     <div className={`${narrow} ${layers}`}>
                         <Image className={`${main} ${panelL}`} alt="" src={images['./ch1_sn03_pn03_main.png']} />
-                        <Image className={onoma} alt="" src={images['./ch1_sn03_pn03_onoma.png']} />
+                        <Image
+                            className={onoma}
+                            alt=""
+                            src={images['./ch1_sn03_pn03_onoma.png']}
+                        />
                     </div>
                 </div >
 
@@ -142,7 +157,13 @@ export default function Ch1() {
                 <div className={`${row} ${white}`}>
                     <div className={narrow}>
                         <Image className={panelL} alt="" src={images['./ch1_sn05_pn00.jpg']} />
-                        <div className={speechBubble} id="ch1_sn05_pn00">
+                        <div
+                            className={`${speechBubble} ${left}`}
+                            style={{
+                                top: '20%',
+                                left: '40%'
+                            }}
+                        >
                             Hello? Excuse you?
                         </div>
                     </div>
@@ -151,56 +172,152 @@ export default function Ch1() {
 
                 <div className={`${row} ${white}`}>
                     <div className={narrow}>
-                        <Image id="cathy-debut" className={panelM} alt="" src={images['./ch1_sn05_pn01.png']} />
-                        <div className={speechBubble} id="ch1_sn05_pn01_1">
+                        <Image
+                            className={panelM}
+                            alt=""
+                            src={images['./ch1_sn05_pn01.png']}
+                            style={{
+                                animation: `${float} 0.5s alternate infinite ease-in-out`
+                            }}
+                        />
+                        <div className={`${speechBubble} ${right}`}
+                            style={{
+                                top: '5%',
+                                left: '24%',
+                            }}
+                        >
                             Oh, hi!
                         </div>
-                        <div className={speechBubble} id="ch1_sn05_pn01_2">
-                            I&rsquo;m sorry. Did I disturb you?
+                        <div
+                            className={`${speechBubble} ${leftTop}`}
+                            style={{
+                                bottom: 0,
+                                left: '60%',
+                            }}
+                        >
+                            I&rsquo;m sorry. <br /> Did I disturb you?
                         </div>
                     </div >
                 </div >
 
 
 
-                <div className={`${row} ${white} ${narrow}`} id="sn06_first_contact" >
-                    <Image className={hero} alt="" src={images['./ch1_sn06_pn00.jpg']} />
-                    <div className={speechBubble} id="ch1_sn06_pn00_2">
-                        VERY MUCH!
-                    </div>
-                    <div className={speechBubble} id="ch1_sn06_pn00_3">
-                        Hopping. Stomping. Springing from place to place...
-                        Do you not shuffle?
-                        Do you not attend your household?
-                    </div>
-                    <div className={speechBubble} id="ch1_sn06_pn00_4">
-                        Well. I don&rsquo;t have a household.
-                        Yours is amazing though.
-                        I wish I had one like that.
+                <div
+                    className={`${row} ${white}`}
+                    style={{ padding: '5em 0' }}
+                >
+                    <div className={narrow}>
+                        <Image className={panelL} alt="" src={images['./ch1_sn06_pn00.jpg']} />
+                        <div
+                            className={speechBubble}
+                            style={{
+                                fontSize: '2em',
+                                top: '20%',
+                                left: '24%',
+                                transform: 'rotate(15deg)',
+                                color: '#d17f69',
+                                backgroundColor: '#d4f2b7',
+                            }}
+                        >
+                            VERY MUCH!
+                        </div>
+                        <div
+                            className={`${speechBubble} ${right}`}
+                            style={{
+                                top: '30%',
+                                left: '20%',
+                                width: '50%',
+                                maxWidth: '15em',
+                                transform: 'rotate(-5deg)',
+                            }}
+                        >
+                            Hopping. Stomping. Springing from place to place...
+                            Do you not shuffle? <br />
+                            Do you not attend your household?
+                        </div>
+                        <div
+                            className={`${speechBubble} ${leftTop}`}
+                            style={{
+                                bottom: '2.5em',
+                                right: '25%'
+                            }}
+                        >
+                            Well. I don&rsquo;t have a household. <br />
+                            Yours is amazing though.
+                            I wish I had one like that.
+                        </div>
                     </div>
                 </div>
 
                 <div className={`${row} ${white}`} id="sn07">
-                    <div className={`${narrow} ${layers}`} id="ch1_sn07_pn00">
-                        <Image className={panelM} alt="" src={images['./ch1_sn07_pn00.jpg']} />
-                        <div className={speechBubble}>
-                            Oh Thanks! I do love my home.
+                    <div
+                        className={`${narrow} ${layers}`}
+                        style={{
+                            height: '500px',
+                            maxWidth: '600px',
+                        }}
+                    >
+                        <Image
+                            className={panelM}
+                            alt=""
+                            src={images['./ch1_sn07_pn00.jpg']}
+                            style={{
+                                position: 'absolute',
+                                left: 0,
+                                top: '250px',
+                            }}
+                        />
+                        <div
+                            className={speechBubble}
+                            style={{
+                                right: '0',
+                                top: '2em',
+                            }}
+                        >
+                            Oh Thanks! I do love my home.<br />
                             I&rsquo;m sorry you don&rsquo;t have one.
                         </div>
-                        <div className={speechBubble}>
+                        <div
+                            className={`${speechBubble} ${left}`}
+                            style={{
+                                right: '5em',
+                                top: '6em',
+                            }}
+                        >
                             Let&rsquo;s talk about shuffling then!
                         </div>
                     </div >
 
-                    <div className={`${narrow} ${layers}`} id="ch1_sn07_pn01">
-                        <Image className={panelM} alt="" src={images['./ch1_sn07_pn01.jpg']} />
-                        <div className={speechBubble}>
+                    <div
+                        className={`${narrow} ${layers}`}
+                        style={{
+                            height: '500px',
+                            maxWidth: '600px',
+                        }}
+                    >
+                        <Image
+                            className={panelM}
+                            alt=""
+                            src={images['./ch1_sn07_pn01.jpg']}
+                            style={{
+                                position: 'absolute',
+                                right: 0,
+                                top: '160px',
+                            }}
+                        />
+                        <div
+                            className={`${speechBubble} ${right}`}
+                            style={{
+                                left: '0',
+                                maxWidth: '15em'
+                            }}
+                        >
                             Sure! Tell me about shuffling~ I love gymnastics!
                             But we ran out of space. We&rsquo;ll have to turn to the next page.
                         </div>
                     </div >
                 </div>
-            </article>
+            </article >
         </>
     );
 }
