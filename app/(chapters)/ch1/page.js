@@ -1,5 +1,4 @@
-import styles from "../chapter.module.css";
-import './ch1.module.css';
+import styles from "./ch1.module.css";
 import { Sedgwick_Ave } from 'next/font/google';
 import Image from "next/image";
 
@@ -21,84 +20,81 @@ const sedgwick = Sedgwick_Ave({
     weight: '400'
 })
 
-const { row, wide, narrow, white, black, layers, main, onoma,
-    narration, speechBubble, right, left, leftTop,
-    hero, panelL, panelM, panelS, float, flare
-} = styles
+const { float, flare } = styles
 
 export default function Ch1() {
     return (
         <>
-            <div className={`${row} ${black}`}>
+            <div className="row black">
                 <ChapterHeader
                     currentChapter={chapters.one}
-                    style={styles.chapterHeader} />
+                    style="chapterHeader" />
             </div>
             <article className={sedgwick.className}>
-                <div className={`${row} ${black}`}>
-                    <div className={narrow}>
-                        <p className={narration}>
+                <div className="row black">
+                    <div className="narrow">
+                        <p className="narration">
                             It was a crispy summer night.
                             The air finally cooled down.
                             The grassland glistened with dewdrops.
                         </p>
                     </div>
-                    <div className={wide}>
+                    <div className="wide">
                         <Image
                             alt="A snail sleeps on top of a leaf. A dewdrop drapes down from a grass leaf. Moon hangs in the starry sky."
                             src={images['./ch1_sn00_pn00.jpg']}
-                            className={hero}
+                            className="hero"
                             priority
                         />
                     </div>
-                    <div className={narrow}>
-                        <p className={narration}>
+                    <div className="narrow">
+                        <p className="narration">
                             Sara Snail turns in early, as usual.
                         </p>
                         <Image
                             alt="She blowed off the candle"
-                            className={panelM}
+                            className="panelM"
                             src={images["./ch1_sn01_pn00.png"]}
                         />
                         <Image
                             alt="and lied down in bed comfortably"
-                            className={panelM}
+                            className="panelM"
                             src={images["./ch1_sn01_pn01.png"]} />
-                        <p className={narration}>
+                        <p className="narration">
                             As you can tell, she&rsquo;s made her home so comfy
                             that if I were her I would turn in early every night too.
                         </p>
                     </div>
 
                     {/* This block need to be a custom component */}
-                    <div className={`${row} ${black}`} id="sn01_disturbed_sleep">
-                        <div className={`${narrow} ${layers}`}>
+                    <div className="row black" id="sn01_disturbed_sleep">
+                        <div className="narrow layers">
                             <Image alt=""
-                                className={`${main} ${panelL}`}
+                                className="main panelL"
                                 src={images["./ch1_sn01_pn02_main.png"]} />
                             <Image alt=""
-                                className={onoma}
+                                className="onoma"
                                 src={images["./ch1_sn01_pn02_onoma.png"]} />
                         </div>
                     </div>
 
-                    <div className={`${row} ${black}`}>
-                        <div className={narrow}>
+                    <div className="row black">
+                        <div className="narrow">
                             <Image alt=""
-                                className={panelM}
+                                className="panelM"
                                 src={images["./ch1_sn01_pn03.png"]} />
                             <Image alt=""
-                                className={panelM}
+                                className="panelM"
                                 src={images["./ch1_sn01_pn04.png"]} />
                         </div>
                     </div>
                 </div>
-                <div className={`${row} ${white}`}>
-                    <div className={narrow}>
-                        <p className={narration}>In spite of some occasional disturbances,
+                <div className="row white">
+                    <div className="narrow">
+                        <p className="narration">In spite of some occasional disturbances,
                             Sara Snail generally lives a stress-free life.</p>
                     </div>
-                    <div className={`${wide} ${layers}`}>
+                    <div className="wide layers">
                         <Image src={images['./ch1_sn02_pn00.jpg']} alt="A sunny day has begun." />
                         <Image
                             src={images['./ch1_sn02_pn00_shine.png']}
@@ -114,25 +110,25 @@ export default function Ch1() {
                     </div>
                 </div>
 
-                <div className={`${row} ${white}`}>
-                    <div className={narrow}>
-                        <p className={narration}>She wakes up in the morning,</p>
-                        <Image className={panelM} alt="" src={images['./ch1_sn03_pn00.png']} />
-                        <p className={narration}>...makes her tea,</p>
-                        <Image className={panelM} alt="" src={images['./ch1_sn03_pn01.png']} />
-                        <p className={narration}>...and enjoys a moment of peace before her day starts.</p>
-                        <Image className={panelM} alt="" src={images['./ch1_sn03_pn02.png']} />
+                <div className="row white">
+                    <div className="narrow">
+                        <p className="narration">She wakes up in the morning,</p>
+                        <Image className="panelM" alt="" src={images['./ch1_sn03_pn00.png']} />
+                        <p className="narration">...makes her tea,</p>
+                        <Image className="panelM" alt="" src={images['./ch1_sn03_pn01.png']} />
+                        <p className="narration">...and enjoys a moment of peace before her day starts.</p>
+                        <Image className="panelM" alt="" src={images['./ch1_sn03_pn02.png']} />
                     </div>
                 </div>
 
 
 
 
-                <div className={`${row} ${white}`} id="sn03_disturbed_tea">
-                    <div className={`${narrow} ${layers}`}>
-                        <Image className={`${main} ${panelL}`} alt="" src={images['./ch1_sn03_pn03_main.png']} />
+                <div className="row white" id="sn03_disturbed_tea">
+                    <div className="narrow layers">
+                        <Image className="main panelL" alt="" src={images['./ch1_sn03_pn03_main.png']} />
                         <Image
-                            className={onoma}
+                            className="onoma"
                             alt=""
                             src={images['./ch1_sn03_pn03_onoma.png']}
                         />
@@ -143,22 +139,22 @@ export default function Ch1() {
 
 
 
-                <div className={`${row} ${white}`}>
-                    <div className={narrow}>
-                        <p className={narration}>This particular morning, Sara Snail can&rsquo;t take it any more.</p>
-                        <Image className={panelM} alt="" src={images['./ch1_sn03_pn04.png']} />
-                        <p className={narration}>She peeps out of her house.</p>
-                        <Image className={panelS} alt="" src={images['./ch1_sn04_pn00.jpg']} />
-                        <Image className={panelS} alt="" src={images['./ch1_sn04_pn01.jpg']} />
-                        <Image className={panelS} alt="" src={images['./ch1_sn04_pn02.jpg']} />
+                <div className="row white">
+                    <div className="narrow">
+                        <p className="narration">This particular morning, Sara Snail can&rsquo;t take it any more.</p>
+                        <Image className="panelM" alt="" src={images['./ch1_sn03_pn04.png']} />
+                        <p className="narration">She peeps out of her house.</p>
+                        <Image className="panelS" alt="" src={images['./ch1_sn04_pn00.jpg']} />
+                        <Image className="panelS" alt="" src={images['./ch1_sn04_pn01.jpg']} />
+                        <Image className="panelS" alt="" src={images['./ch1_sn04_pn02.jpg']} />
                     </div>
                 </div>
 
-                <div className={`${row} ${white}`}>
-                    <div className={narrow}>
-                        <Image className={panelL} alt="" src={images['./ch1_sn05_pn00.jpg']} />
+                <div className="row white">
+                    <div className="narrow">
+                        <Image className="panelL" alt="" src={images['./ch1_sn05_pn00.jpg']} />
                         <div
-                            className={`${speechBubble} ${left}`}
+                            className="speechBubble left"
                             style={{
                                 top: '20%',
                                 left: '40%'
@@ -170,17 +166,17 @@ export default function Ch1() {
                 </div >
 
 
-                <div className={`${row} ${white}`}>
-                    <div className={narrow}>
+                <div className="row white">
+                    <div className="narrow">
                         <Image
-                            className={panelM}
+                            className="panelM"
                             alt=""
                             src={images['./ch1_sn05_pn01.png']}
                             style={{
                                 animation: `${float} 0.5s alternate infinite ease-in-out`
                             }}
                         />
-                        <div className={`${speechBubble} ${right}`}
+                        <div className="speechBubble right"
                             style={{
                                 top: '5%',
                                 left: '24%',
@@ -189,7 +185,7 @@ export default function Ch1() {
                             Oh, hi!
                         </div>
                         <div
-                            className={`${speechBubble} ${leftTop}`}
+                            className="speechBubble leftTop"
                             style={{
                                 bottom: 0,
                                 left: '60%',
@@ -203,13 +199,13 @@ export default function Ch1() {
 
 
                 <div
-                    className={`${row} ${white}`}
+                    className="row white"
                     style={{ padding: '5em 0' }}
                 >
-                    <div className={narrow}>
-                        <Image className={panelL} alt="" src={images['./ch1_sn06_pn00.jpg']} />
+                    <div className="narrow">
+                        <Image className="panelL" alt="" src={images['./ch1_sn06_pn00.jpg']} />
                         <div
-                            className={speechBubble}
+                            className="speechBubble "
                             style={{
                                 fontSize: '2em',
                                 top: '20%',
@@ -222,7 +218,7 @@ export default function Ch1() {
                             VERY MUCH!
                         </div>
                         <div
-                            className={`${speechBubble} ${right}`}
+                            className="speechBubble right"
                             style={{
                                 top: '30%',
                                 left: '20%',
@@ -236,7 +232,7 @@ export default function Ch1() {
                             Do you not attend your household?
                         </div>
                         <div
-                            className={`${speechBubble} ${leftTop}`}
+                            className="speechBubble leftTop"
                             style={{
                                 bottom: '2.5em',
                                 right: '25%'
@@ -249,16 +245,16 @@ export default function Ch1() {
                     </div>
                 </div>
 
-                <div className={`${row} ${white}`} id="sn07">
+                <div className="row white" id="sn07">
                     <div
-                        className={`${narrow} ${layers}`}
+                        className="narrow layers"
                         style={{
                             height: '500px',
                             maxWidth: '600px',
                         }}
                     >
                         <Image
-                            className={panelM}
+                            className="panelM"
                             alt=""
                             src={images['./ch1_sn07_pn00.jpg']}
                             style={{
@@ -268,7 +264,7 @@ export default function Ch1() {
                             }}
                         />
                         <div
-                            className={speechBubble}
+                            className="speechBubble "
                             style={{
                                 right: '0',
                                 top: '2em',
@@ -278,7 +274,7 @@ export default function Ch1() {
                             I&rsquo;m sorry you don&rsquo;t have one.
                         </div>
                         <div
-                            className={`${speechBubble} ${left}`}
+                            className="speechBubble left"
                             style={{
                                 right: '5em',
                                 top: '6em',
@@ -289,14 +285,14 @@ export default function Ch1() {
                     </div >
 
                     <div
-                        className={`${narrow} ${layers}`}
+                        className="narrow layers"
                         style={{
                             height: '500px',
                             maxWidth: '600px',
                         }}
                     >
                         <Image
-                            className={panelM}
+                            className="panelM"
                             alt=""
                             src={images['./ch1_sn07_pn01.jpg']}
                             style={{
@@ -306,7 +302,7 @@ export default function Ch1() {
                             }}
                         />
                         <div
-                            className={`${speechBubble} ${right}`}
+                            className="speechBubble right"
                             style={{
                                 left: '0',
                                 maxWidth: '15em'

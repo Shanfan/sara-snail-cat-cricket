@@ -1,7 +1,7 @@
 import Navigation from '/util/Navigation.js'
 import PageTurner from '@/util/PageTurner';
 import chapters from '/util/chapterInfo.js'
-import styles from './chapter.module.css'
+import './chapter.css';
 
 const chapterLinks = Object.values(chapters).map(chapter =>
     ({ 'name': chapter.name, 'href': chapter.href }))
@@ -16,15 +16,15 @@ export default function ChapterLayout({ children }) {
     return (
         <>
             <Navigation
-                style={styles.navbar}
+                style="navbar"
                 navLinks={navLinks}
             />
 
             {children}
 
-            <div className={`${styles.row} ${styles.white}`}>
+            <div className="row white">
                 <PageTurner
-                    style={`${styles.pageTurner}`}
+                    style="pageTurner"
                 />
             </div>
         </>

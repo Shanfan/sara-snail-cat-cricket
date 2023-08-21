@@ -203,25 +203,3 @@
     background-size: contain;
     background-image: url('../../public/speech-tail-left-top.png');
 }
-
-@keyframes float {
-    from {
-        transform: translate(5px, -10px);
-    }
-
-    to {
-        transform: translate(0px, 5px);
-    }
-}
-
-@keyframes flare {
-    0% {
-        opacity: 0;
-        transform: rotate(36deg);
-    }
-
-    50% {
-        opacity: 0.5;
-        transform: rotate(10deg);
-    }
-}
