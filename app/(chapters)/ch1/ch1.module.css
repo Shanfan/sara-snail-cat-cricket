@@ -13,11 +13,11 @@
 @keyframes flare {
     0% {
         opacity: 0;
-        transform: rotate(36deg);
+        transform: translate(-50%, -50%) scale(30%) rotate(-30deg);
     }
 
-    50% {
+    100% {
         opacity: 0.5;
-        transform: rotate(10deg);
+        transform: translate(-50%, -50%) scale(30%) rotate(-10deg);
     }
 }

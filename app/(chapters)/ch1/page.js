@@ -95,15 +95,18 @@ export default function Ch1() {
                             Sara Snail generally lives a stress-free life.</p>
                     </div>
                     <div className="wide layers">
-                        <Image src={images['./ch1_sn02_pn00.jpg']} alt="A sunny day has begun." />
                         <Image
-                            src={images['./ch1_sn02_pn00_shine.png']}
+                            className="hero"
+                            src={images['./ch1_sn02_pn00.jpg']}
+                            alt="A sunny day has begun." />
+                        <Image
+                            className="hero"
+                            src={images['./ch1_sn02_pn00_shine.svg']}
                             alt="lens flare"
                             style={{
                                 position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                transformOrigin: '66.7% 44.4%',
+                                top: '45%',
+                                left: '67%',
                                 animation: `${flare} 5s alternate infinite linear`
                             }}
                         />
