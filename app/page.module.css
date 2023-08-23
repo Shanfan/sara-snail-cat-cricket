@@ -29,6 +29,8 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
+  /* Needs better optimization for small screens*/
 }
 
 

@@ -5,6 +5,8 @@ import Image from "next/image";
 import chapters from "@/util/chapterInfo";
 import ChapterHeader from "@/util/ChapterHeader";
 import importAllImages from "@/util/importImages";
+import DisturbedSleep from "./DisturbedSleep";
+import DisturbedTea from "./DisturbedTea";
 
 const images = importAllImages(
     require.context(
@@ -23,6 +25,7 @@ const sedgwick = Sedgwick_Ave({
 const { float, flare } = styles
 
 export default function Ch1() {
+
     return (
         <>
             <div className="row black">
@@ -66,17 +69,7 @@ export default function Ch1() {
                         </p>
                     </div>
 
-                    {/* This block need to be a custom component */}
-                    <div className="row black" id="sn01_disturbed_sleep">
-                        <div className="narrow layers">
-                            <Image alt=""
-                                className="main panelL"
-                                src={images["./ch1_sn01_pn02_main.png"]} />
-                            <Image alt=""
-                                className="onoma"
-                                src={images["./ch1_sn01_pn02_onoma.png"]} />
-                        </div>
-                    </div>
+                    <DisturbedSleep />
 
                     <div className="row black">
                         <div className="narrow">
@@ -127,7 +120,7 @@ export default function Ch1() {
 
 
 
-                <div className="row white" id="sn03_disturbed_tea">
+                {/* <div className="row white" id="sn03_disturbed_tea">
                     <div className="narrow layers">
                         <Image className="main panelL" alt="" src={images['./ch1_sn03_pn03_main.png']} />
                         <Image
@@ -136,8 +129,8 @@ export default function Ch1() {
                             src={images['./ch1_sn03_pn03_onoma.png']}
                         />
                     </div>
-                </div >
-
+                </div > */}
+                <DisturbedTea />
 
 
 
