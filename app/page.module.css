@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-flow: column nowrap;
-  height: calc(100vh - 1.5rem);
+  height: 100vh;
 }
 
 .hero {
@@ -15,7 +15,7 @@
 }
 
 .title span {
-  font-size: 9vw;
+  font-size: 5rem;
   line-height: 1.5em;
 }
 
@@ -37,6 +37,7 @@
   border-right: 1px solid var(--ui-border-color);
   color: black;
   text-decoration: none;
+  transition: all 0.2s linear;
 }
 
 .navbar a:hover {
@@ -48,6 +49,7 @@
   color: white;
   background-color: #222;
   border-left: 1px solid var(--ui-border-color);
+  /* flex-grow: 1; */
 }
 
 .navbar a:last-child:hover {
@@ -56,6 +58,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .title span {
+    font-size: 9vw;
+  }
+
   .navbar a {
     width: 100%;
     padding: 1em;

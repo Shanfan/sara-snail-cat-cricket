@@ -13,18 +13,11 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const currentDate = new Date();
-
   return (
     <html lang="en">
       <body className={roboto.className}
         suppressHydrationWarning={true}>
         {children}
-        <footer>
-          <p>
-            &copy; Copyright Shanfan Huang <span>{currentDate.getFullYear()}</span>
-          </p>
-        </footer>
       </body>
     </html>
   )

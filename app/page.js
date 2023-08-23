@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import Navigation from '@/util/Navigation'
 import chapters from "@/util/chapterInfo"
 import heroImg from '@/public/ch0_title.png'
+import Footer from '@/util/Footer'
 
 const rockSalt = Rock_Salt({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function Home() {
         </h2>
       </div>
       <Navigation style={styles.navbar} navLinks={navLinks} currentChapter='' />
+      <Footer />
     </main >
   )
 }

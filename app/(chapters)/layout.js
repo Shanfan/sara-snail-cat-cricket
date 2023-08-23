@@ -1,6 +1,7 @@
-import Navigation from '/util/Navigation.js'
+import Navigation from '@/util/Navigation'
 import PageTurner from '@/util/PageTurner';
-import chapters from '/util/chapterInfo.js'
+import Footer from '@/util/Footer';
+import chapters from '@/util/chapterInfo';
 import './chapter.css';
 
 const chapterLinks = Object.values(chapters).map(chapter =>
@@ -27,6 +28,7 @@ export default function ChapterLayout({ children }) {
                     style="pageTurner"
                 />
             </div>
+            <Footer />
         </>
     )
 }
