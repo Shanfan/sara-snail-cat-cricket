@@ -7,6 +7,7 @@ import ChapterHeader from "@/util/ChapterHeader";
 import importAllImages from "@/util/importImages";
 import DisturbedSleep from "./DisturbedSleep";
 import DisturbedTea from "./DisturbedTea";
+import FirstContact from "./FirstContact";
 
 const images = importAllImages(
     require.context(
@@ -117,23 +118,7 @@ export default function Ch1() {
                     </div>
                 </div>
 
-
-
-
-                {/* <div className="row white" id="sn03_disturbed_tea">
-                    <div className="narrow layers">
-                        <Image className="main panelL" alt="" src={images['./ch1_sn03_pn03_main.png']} />
-                        <Image
-                            className="onoma"
-                            alt=""
-                            src={images['./ch1_sn03_pn03_onoma.png']}
-                        />
-                    </div>
-                </div > */}
                 <DisturbedTea />
-
-
-
 
                 <div className="row white">
                     <div className="narrow">
@@ -192,60 +177,13 @@ export default function Ch1() {
                     </div >
                 </div >
 
-
-
-                <div
-                    className="row white"
-                    style={{ padding: '5em 0' }}
-                >
-                    <div className="narrow">
-                        <Image className="panelL" alt="" src={images['./ch1_sn06_pn00.jpg']} />
-                        <div
-                            className="speechBubble "
-                            style={{
-                                fontSize: '2em',
-                                top: '20%',
-                                left: '24%',
-                                transform: 'rotate(15deg)',
-                                color: '#d17f69',
-                                backgroundColor: '#d4f2b7',
-                            }}
-                        >
-                            VERY MUCH!
-                        </div>
-                        <div
-                            className="speechBubble right"
-                            style={{
-                                top: '30%',
-                                left: '20%',
-                                width: '50%',
-                                maxWidth: '15em',
-                                transform: 'rotate(-5deg)',
-                            }}
-                        >
-                            Hopping. Stomping. Springing from place to place...
-                            Do you not shuffle? <br />
-                            Do you not attend your household?
-                        </div>
-                        <div
-                            className="speechBubble leftTop"
-                            style={{
-                                bottom: '2.5em',
-                                right: '25%'
-                            }}
-                        >
-                            Well. I don&rsquo;t have a household. <br />
-                            Yours is amazing though.
-                            I wish I had one like that.
-                        </div>
-                    </div>
-                </div>
+                <FirstContact />
 
                 <div className="row white" id="sn07">
                     <div
                         className="narrow layers"
                         style={{
-                            height: '500px',
+                            height: '300px',
                             maxWidth: '600px',
                         }}
                     >
@@ -256,14 +194,14 @@ export default function Ch1() {
                             style={{
                                 position: 'absolute',
                                 left: 0,
-                                top: '250px',
+                                bottom: 0,
                             }}
                         />
                         <div
                             className="speechBubble "
                             style={{
-                                right: '0',
-                                top: '2em',
+                                right: '1.3em',
+                                top: '1.5em',
                             }}
                         >
                             Oh Thanks! I do love my home.<br />
@@ -272,7 +210,7 @@ export default function Ch1() {
                         <div
                             className="speechBubble left"
                             style={{
-                                right: '5em',
+                                right: '0',
                                 top: '6em',
                             }}
                         >
@@ -283,7 +221,7 @@ export default function Ch1() {
                     <div
                         className="narrow layers"
                         style={{
-                            height: '500px',
+                            height: '460px',
                             maxWidth: '600px',
                         }}
                     >
@@ -294,13 +232,14 @@ export default function Ch1() {
                             style={{
                                 position: 'absolute',
                                 right: 0,
-                                top: '160px',
+                                bottom: 0,
                             }}
                         />
                         <div
                             className="speechBubble right"
                             style={{
                                 left: '0',
+                                top: '30px',
                                 maxWidth: '15em'
                             }}
                         >
