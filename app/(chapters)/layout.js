@@ -1,25 +1,12 @@
-import Navigation from '@/util/Navigation'
 import PageTurner from '@/util/PageTurner';
 import Footer from '@/util/Footer';
-import chapters from '@/util/chapterInfo';
+import MobileNav from '@/util/MobileNav';
 import './chapter.css';
-
-const chapterLinks = Object.values(chapters).map(chapter =>
-    ({ 'name': chapter.name, 'href': chapter.href }))
-
-const navLinks = [
-    { 'name': 'Book Cover', 'href': '/' },
-    ...chapterLinks,
-    { 'name': 'About', 'href': '/about' }
-]
 
 export default function ChapterLayout({ children }) {
     return (
         <>
-            <Navigation
-                style="navbar"
-                navLinks={navLinks}
-            />
+            <MobileNav />
 
             {children}
 

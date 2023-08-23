@@ -3,6 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .navbar * {
@@ -11,7 +12,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid var(--ui-border-color);
     color: var(--link-active-color);
     text-decoration: none;
 }
@@ -32,8 +32,47 @@
 }
 
 .navbar div {
+    position: relative;
     color: var(--link-active-color);
     border-bottom: var(--link-active-color) 2px solid;
+}
+
+.navbar div::after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--link-active-color);
+
+}
+
+
+.mobileNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--ui-border-color);
+}
+
+.title {
+    font-size: 1.6rem;
+    padding: 1em;
+}
+
+.mobileNav button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    margin: 1rem;
+    background-color: transparent;
+}
+
+.mobileNav button svg {
+    fill: var(--link-active-color);
 }
 
 .pageTurner {
@@ -203,4 +242,16 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url('../../public/speech-tail-left-top.png');
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .navbar * {
+        font-size: 1.6rem;
+        padding: 1em;
+        width: 100%;
+        border-bottom: 1px solid var(--ui-border-color);
+    }
+
 }

@@ -49,7 +49,6 @@
   color: white;
   background-color: #222;
   border-left: 1px solid var(--ui-border-color);
-  /* flex-grow: 1; */
 }
 
 .navbar a:last-child:hover {

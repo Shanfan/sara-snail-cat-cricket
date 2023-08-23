@@ -26,7 +26,7 @@ export default function Home() {
           The Tale of<br />
           <span className={rockSalt.className}>
             Sara Snail & <br />
-            Cathy Cricket
+            Cat Cricket
           </span>
         </h1>
         <Image
@@ -39,9 +39,9 @@ export default function Home() {
             objectPosition: 'right bottom',
           }}
         />
-        <h2>
+        <h3>
           An Interative Comic Book by Shanfan Huang
-        </h2>
+        </h3>
       </div>
       <Navigation style={styles.navbar} navLinks={navLinks} currentChapter='' />
       <Footer />

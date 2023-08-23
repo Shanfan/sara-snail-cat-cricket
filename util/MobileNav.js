@@ -1,0 +1,60 @@
+'use client'
+import { useState } from 'react'
+
+import Navigation from '@/util/Navigation'
+import chapters from '@/util/chapterInfo';
+
+const chapterLinks = Object.values(chapters).map(
+    chapter =>
+        ({ 'name': chapter.name, 'href': chapter.href })
+)
+
+const navLinks = [
+    { 'name': 'Book Cover', 'href': '/' },
+    ...chapterLinks,
+    { 'name': 'About', 'href': '/about' }
+]
+
+export default function MobileNav() {
+    const [menuOut, setMenuOut] = useState(false);
+
+    function handleClick() {
+        setMenuOut(!menuOut);
+    }
+
+    return (
+        <>
+            <div className='mobileNav'>
+                <div className='title'>Sara Snail & Cat Cricket</div>
+                <button className='menuIcon' onClick={handleClick}>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960"
+                        width="32"
+                        height="32"
+                    >
+                        {
+                            menuOut ?
+                                //close icon
+                                (<path
+                                    d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+                                />)
+                                :
+                                //menu icon
+                                (<path
+                                    d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+                                />)
+                        }
+                    </svg>
+                </button>
+            </div>
+
+            {menuOut && (<Navigation
+                style="navbar"
+                navLinks={navLinks}
+            />)}
+
+        </>
+
+    )
+}
