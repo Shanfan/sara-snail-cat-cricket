@@ -1,26 +1,21 @@
 .main {
   display: flex;
   flex-flow: column nowrap;
-  height: calc(100vh - 27px);
+  height: calc(100vh - 1.5rem);
 }
 
 .hero {
   position: relative;
   flex-grow: 1;
   color: white;
-  padding-left: 5em;
-  padding-top: 5em;
+  padding: 10vw;
   background: radial-gradient(158.28% 91.38% at -0.69% 0.00%,
       #bfd9e9 0%,
       #6ca8c7 100%);
 }
 
-.title {
-  font-size: 3rem;
-}
-
 .title span {
-  font-size: 5rem;
+  font-size: 9vw;
   line-height: 1.5em;
 }
 
@@ -30,7 +25,6 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  /* Needs better optimization for small screens*/
 }
 
 
@@ -59,4 +53,19 @@
 .navbar a:last-child:hover {
   text-shadow: #000 0 1px 3px;
   background: linear-gradient(to bottom, #333 0%, #222 50%);
+}
+
+@media screen and (max-width: 768px) {
+  .navbar a {
+    width: 100%;
+    padding: 1em;
+    border-bottom: 1px solid var(--ui-border-color);
+    border-right: none;
+  }
+
+  .navbar a:last-child {
+    border: none;
+    background-color: transparent;
+    color: black;
+  }
 }

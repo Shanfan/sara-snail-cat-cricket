@@ -45,7 +45,7 @@
 .pageTurner a {
     display: inline-block;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 1em 1.5em;
     text-transform: uppercase;
     color: var(--link-color);
@@ -113,7 +113,7 @@
 
 /* Typography */
 .narration {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 2em;
     letter-spacing: 0.25em;
 }
@@ -158,6 +158,7 @@
 .speechBubble {
     position: absolute;
     text-align: center;
+    font-size: 1.2rem;
     line-height: 1.6em;
     letter-spacing: 1px;
     display: inline-block;
