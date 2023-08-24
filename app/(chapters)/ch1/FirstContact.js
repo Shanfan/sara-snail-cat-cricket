@@ -37,8 +37,9 @@ export default function FirstContact() {
                     }}
                 >
                     Hopping. Stomping. Springing from place to place...
-                    Do you not shuffle? <br />
-                    Do you not attend your household?
+                    Do you not attend your household?<br />
+                    Do you not shuffle?
+
                 </div>
 
                 <Image

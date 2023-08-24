@@ -1,8 +1,9 @@
 'use client'
 import { useState } from 'react'
-
+import Image from 'next/image'
 import Navigation from '@/util/Navigation'
 import chapters from '@/util/chapterInfo';
+import ssccLogo from '@/public/saraCatlogo.svg';
 
 const chapterLinks = Object.values(chapters).map(
     chapter =>
@@ -25,7 +26,14 @@ export default function MobileNav() {
     return (
         <>
             <div className='mobileNav'>
-                <div className='title'>Sara Snail & Cat Cricket</div>
+                <div className='sscclogo'>
+                    <Image
+                        alt="The Tale of Sara Snail and Cat Cricket logo"
+                        src={ssccLogo}
+                        height={80}
+                        width={"auto"}
+                    />
+                </div>
                 <button className='menuIcon' onClick={handleClick}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

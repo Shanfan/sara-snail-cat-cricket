@@ -38,9 +38,9 @@ export default function Ch1() {
                 <div className="row black">
                     <div className="narrow">
                         <p className="narration">
-                            It was a crispy summer night.
-                            The air finally cooled down.
-                            The grassland glistened with dewdrops.
+                            It was a crispy summer night.<br />
+                            The air finally cooled down. <br />
+                            The grassland glistened with dewdrops. <br />
                         </p>
                     </div>
                     <div className="wide">
@@ -122,7 +122,7 @@ export default function Ch1() {
 
                 <div className="row white">
                     <div className="narrow">
-                        <p className="narration">This particular morning, Sara Snail can&rsquo;t take it any more.</p>
+                        <p className="narration">This particular morning,<br /> Sara Snail can&rsquo;t take it any more.</p>
                         <Image className="panelM" alt="" src={images['./ch1_sn03_pn04.png']} />
                         <p className="narration">She peeps out of her house.</p>
                         <Image className="panelS" alt="" src={images['./ch1_sn04_pn00.jpg']} />

@@ -57,12 +57,6 @@
     border-bottom: 1px solid var(--ui-border-color);
 }
 
-.title {
-    /* this is the tile of the nav bar; we might need a better name */
-    font-size: 1.6rem;
-    padding: 1em;
-}
-
 .mobileNav button {
     width: 48px;
     height: 48px;
@@ -164,8 +158,9 @@
 /* Typography */
 .narration {
     font-size: 1.3rem;
-    line-height: 2em;
+    line-height: 1.6em;
     letter-spacing: 0.25em;
+    padding: 1em;
 }
 
 /* Image Styles */
