@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Navigation from '@/util/Navigation'
 import chapters from '@/util/chapterInfo';
-import ssccLogo from '@/public/saraCatlogo.svg';
+import ssccLogo from '@/public/sscc-logo.svg';
 
 const chapterLinks = Object.values(chapters).map(
     chapter =>
