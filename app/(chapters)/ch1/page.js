@@ -1,13 +1,14 @@
 import styles from "./ch1.module.css";
 import { Sedgwick_Ave } from 'next/font/google';
-import Image from "next/image";
 
 import chapters from "@/util/chapterInfo";
 import ChapterHeader from "@/util/ChapterHeader";
-import importAllImages from "@/util/importImages";
 import DisturbedSleep from "./DisturbedSleep";
 import DisturbedTea from "./DisturbedTea";
 import FirstContact from "./FirstContact";
+
+import Image from "next/image";
+import importAllImages from "@/util/importImages";
 
 const images = importAllImages(
     require.context(

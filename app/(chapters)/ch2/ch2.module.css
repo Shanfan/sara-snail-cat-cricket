@@ -1,0 +1,25 @@
+.jamGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.cell {
+    aspect-ratio: 1;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blue {
+    background-color: rgb(126, 183, 212);
+}
+
+.pink {
+    background-color: rgb(221, 149, 149);
+}
+
+.mustard {
+    background-color: rgb(208, 207, 132);
+}
