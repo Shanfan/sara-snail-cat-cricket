@@ -6,7 +6,7 @@
 
 .cell {
     aspect-ratio: 1;
-    border-radius: 1.2rem;
+    border-radius: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
