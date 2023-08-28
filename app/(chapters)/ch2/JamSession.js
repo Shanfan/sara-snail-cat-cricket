@@ -5,7 +5,7 @@ import { Player } from '@lottiefiles/react-lottie-player'
 
 import Image from 'next/image'
 import ss1 from '@/public/ch2/ch2_sn02_ss1.json'
-import ss2 from '@/public/ch2/ch2_sn02_ss2.png'
+import ss2 from '@/public/ch2/ch2_sn02_ss2.json'
 import ss3 from '@/public/ch2/ch2_sn02_ss3.png'
 import cc1 from '@/public/ch2/ch2_sn02_cc1.png'
 import cc2 from '@/public/ch2/ch2_sn02_cc2.png'
@@ -59,11 +59,14 @@ export default function JamSession() {
                     lalala
                 </div>
                 <div className={`${blue} ${cell}`}>
-                    <Image
-                        alt=""
+                    <Player
+                        autoplay
+                        loop
                         src={ss2}
-                        className='panelM'
-                    />
+                        style={{
+                            transform: 'translateY(5px)'
+                        }}
+                    ></Player>
                 </div>
                 <div className={`${mustard} ${cell}`}>
                     1
