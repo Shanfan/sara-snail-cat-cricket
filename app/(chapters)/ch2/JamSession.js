@@ -2,11 +2,9 @@
 
 import { Player } from '@lottiefiles/react-lottie-player'
 
-import Image from 'next/image'
 import ss1 from '@/public/ch2/ch2_sn02_ss1.json'
 import ss2 from '@/public/ch2/ch2_sn02_ss2.json'
 import cc1 from '@/public/ch2/ch2_sn02_cc1.json'
-import cc2 from '@/public/ch2/ch2_sn02_cc2.png'
 import cc3 from '@/public/ch2/ch2_sn02_cc3.json'
 
 import styles from './ch2.module.css'
