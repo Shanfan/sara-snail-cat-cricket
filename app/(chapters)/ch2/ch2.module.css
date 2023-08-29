@@ -5,11 +5,12 @@
 }
 
 .cell {
-    /* aspect-ratio: 1.1; */
     border-radius: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(208, 207, 132);
+    transition: background-color 0.5s ease;
 }
 
 .blue {

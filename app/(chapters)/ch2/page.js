@@ -161,6 +161,11 @@ export default function Ch2() {
                         </div>
                     </div>
                 </div>
+                <div className='row white'>
+                    <div className='narrow'>
+                        <p className='narration'>Shall we play?</p>
+                    </div>
+                </div>
                 <JamSession />
             </article>
 
