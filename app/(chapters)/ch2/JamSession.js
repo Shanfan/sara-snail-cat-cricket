@@ -6,6 +6,8 @@ import ss1 from '@/public/ch2/ch2_sn02_ss1.json'
 import ss2 from '@/public/ch2/ch2_sn02_ss2.json'
 import cc1 from '@/public/ch2/ch2_sn02_cc3.json'
 import cc2 from '@/public/ch2/ch2_sn02_cc1.json'
+import note1 from '@/public/ch2/ch2_sn02_note1.json'
+import note2 from '@/public/ch2/ch2_sn02_note2.json'
 
 import styles from './ch2.module.css'
 
@@ -25,20 +27,24 @@ function CenterCell() {
                     loop
                     src={ss1}
                     style={{
-                        transform: 'translateY(5px)'
+                        transformOrigin: 'center bottom',
+                        transform: 'translateY(4px) scale(0.6)'
                     }}
                 ></Player>
             </button>)
     } else {
         return (
             <button
-                className={`${cell} ${pink}`}
+                className={`${cell} ${blue}`}
                 onClick={() => setIsSara(true)}
             >
                 <Player
                     autoplay
                     loop
                     src={cc1}
+                    style={{
+                        transform: 'scale(0.5)'
+                    }}
                 ></Player>
             </button>)
     }
@@ -46,7 +52,7 @@ function CenterCell() {
 
 function SaraSing() {
     return (
-        <div className={`${cell}`}>
+        <button className={`${cell}`}>
             <Player
                 autoplay
                 loop
@@ -55,13 +61,13 @@ function SaraSing() {
                     transform: 'translateY(5px)'
                 }}
             ></Player>
-        </div>
+        </button>
     )
 }
 
 function SaraSingFlip() {
     return (
-        <div className={`${cell}`}>
+        <botton className={`${cell}`}>
             <Player
                 autoplay
                 loop
@@ -71,13 +77,13 @@ function SaraSingFlip() {
                     transform: 'scaleX(-1) translateY(5px)'
                 }}
             ></Player>
-        </div>
+        </botton>
     )
 }
 
 function CatShuffle() {
     return (
-        <div className={`${pink} ${cell}`}>
+        <botton className={`${pink} ${cell}`}>
             <Player
                 autoplay
                 loop
@@ -86,14 +92,14 @@ function CatShuffle() {
                     transform: 'scale(0.9)'
                 }}
             ></Player>
-        </div>
+        </botton>
 
     )
 }
 
 function CatShuffleFlip() {
     return (
-        <div className={`${pink} ${cell}`}>
+        <button className={`${pink} ${cell}`}>
             <Player
                 autoplay
                 loop
@@ -102,28 +108,91 @@ function CatShuffleFlip() {
                     transform: 'scale(-0.9, 0.9)'
                 }}
             ></Player>
-        </div>
-
+        </button>
     )
 }
 
-export default function JamSession() {
+function Note1() {
+    return (
+        <button className={`${cell}`}>
+            <Player
+                autoplay
+                loop
+                src={note1}
+                style={{
+                    transform: 'scale(0.5)',
+                    opacity: 0.7,
+                }}
+            ></Player>
+        </button>
+    )
+}
 
+function Note1Flip() {
+    return (
+        <button className={`${cell}`}>
+            <Player
+                autoplay
+                loop
+                src={note1}
+                style={{
+                    transform: 'scale(0.5, -0.5)',
+                    opacity: 0.7,
+                }}
+            ></Player>
+        </button>
+    )
+}
+
+function Note2() {
+
+    return (
+        <button className={`${cell}`}>
+            <Player
+                autoplay
+                loop
+                src={note2}
+                style={{
+                    transform: 'scale(0.5)',
+                    opacity: 0.7,
+                }}
+            ></Player>
+        </button>
+    )
+
+}
+
+function Note2Flip() {
+
+    return (
+        <button className={`${cell}`}>
+            <Player
+                autoplay
+                loop
+                src={note2}
+                style={{
+                    transform: 'scale(-0.5)',
+                    opacity: 0.7,
+                }}
+            ></Player>
+        </button>
+    )
+
+}
+
+export default function JamSession() {
     return (
         <div className='row white'>
             <div className={`${jamGrid} narrow`}>
-                <div className={`${pink} ${cell}`}></div>
-                <div className={`${pink} ${cell}`}></div>
+                <Note1 />
                 <CatShuffleFlip />
+                <Note2 />
                 <SaraSing />
-
                 <CenterCell />
-
                 <SaraSingFlip />
-
+                <Note2Flip />
                 <CatShuffle />
-                <div className={`${pink} ${cell}`}></div>
-                <div className={`${pink} ${cell}`}></div>
+                <Note1Flip />
             </div>
         </div >
     )
