@@ -11,16 +11,26 @@ import note2 from '@/public/ch2/ch2_sn02_note2.json'
 
 import styles from './ch2.module.css'
 
-const { jamGrid, cell, blue, pink, mustard } = styles
+const { jamGrid, cell, emptyCell, blue, pink } = styles
 
 function CenterCell() {
     const [isSara, setIsSara] = useState(true);
+    const [count, setCount] = useState(0);
+
+    const handleClick = () => {
+        isSara ? setIsSara(false) : setIsSara(true);
+        if (count < 2) {
+            setCount(count + 1);
+        } else {
+            //Show either SaraSing or CatShuffle
+        }
+    }
 
     if (isSara) {
         return (
             <button
                 className={`${cell} ${blue}`}
-                onClick={() => setIsSara(false)}
+                onClick={handleClick}
             >
                 <Player
                     autoplay
@@ -28,22 +38,22 @@ function CenterCell() {
                     src={ss1}
                     style={{
                         transformOrigin: 'center bottom',
-                        transform: 'translateY(4px) scale(0.6)'
+                        transform: 'translateY(2px) scale(0.6)'
                     }}
                 ></Player>
             </button>)
     } else {
         return (
             <button
-                className={`${cell} ${blue}`}
-                onClick={() => setIsSara(true)}
+                className={`${cell} ${pink}`}
+                onClick={handleClick}
             >
                 <Player
                     autoplay
                     loop
                     src={cc1}
                     style={{
-                        transform: 'scale(0.5)'
+                        transform: 'scale(0.5) translateY(30%)'
                     }}
                 ></Player>
             </button>)
@@ -177,22 +187,53 @@ function Note2Flip() {
             ></Player>
         </button>
     )
+}
 
+function RenderCell({ cellRef }) {
+    switch (cellRef) {
+        case 'sscc':
+            return (<CenterCell />);
+            break;
+        case 'ss':
+            return (<SaraSing />);
+            break;
+        case 'ssf':
+            return (<SaraSingFlip />);
+            break;
+        case 'cc':
+            return (<CatShuffle />);
+            break;
+        case 'ccf':
+            return (<CatShuffleFlip />);
+            break;
+        case 'n1':
+            return (<Note1 />)
+            break;
+        case 'n1f':
+            return (<Note1Flip />)
+            break;
+        case 'n2':
+            return (<Note2 />)
+            break;
+        case 'n2f':
+            return (<Note2Flip />)
+            break;
+        case null:
+        default:
+            return (<div className={`${emptyCell}`}></div>)
+    }
+}
+
+function RenderJamGrid({ jamState }) {
+    return jamState.map((cellRef, i) => <RenderCell key={i} cellRef={cellRef} />)
 }
 
 export default function JamSession() {
+    const [jamState, setJamState] = useState([null, null, null, null, "sscc", null, null, null, null]);
     return (
         <div className='row white'>
             <div className={`${jamGrid} narrow`}>
-                <Note1 />
-                <CatShuffleFlip />
-                <Note2 />
-                <SaraSing />
-                <CenterCell />
-                <SaraSingFlip />
-                <Note2Flip />
-                <CatShuffle />
-                <Note1Flip />
+                <RenderJamGrid jamState={jamState} />
             </div>
         </div >
     )

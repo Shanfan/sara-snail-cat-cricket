@@ -33,6 +33,10 @@ footer {
   font-size: 0.75rem;
 }
 
+button {
+  border: none;
+}
+
 @media screen and (max-width: 768px) {
   html {
     font-size: 14px;
