@@ -13,53 +13,6 @@ import styles from './ch2.module.css'
 
 const { jamGrid, cell, emptyCell, blue, pink } = styles
 
-function CenterCell() {
-    const [isSara, setIsSara] = useState(true);
-    const [count, setCount] = useState(0);
-
-    const handleClick = () => {
-        isSara ? setIsSara(false) : setIsSara(true);
-        if (count < 2) {
-            setCount(count + 1);
-        } else {
-            //Show either SaraSing or CatShuffle
-        }
-    }
-
-    if (isSara) {
-        return (
-            <button
-                className={`${cell} ${blue}`}
-                onClick={handleClick}
-            >
-                <Player
-                    autoplay
-                    loop
-                    src={ss1}
-                    style={{
-                        transformOrigin: 'center bottom',
-                        transform: 'translateY(2px) scale(0.6)'
-                    }}
-                ></Player>
-            </button>)
-    } else {
-        return (
-            <button
-                className={`${cell} ${pink}`}
-                onClick={handleClick}
-            >
-                <Player
-                    autoplay
-                    loop
-                    src={cc1}
-                    style={{
-                        transform: 'scale(0.5) translateY(30%)'
-                    }}
-                ></Player>
-            </button>)
-    }
-}
-
 function SaraSing() {
     return (
         <button className={`${cell}`}>
@@ -189,10 +142,48 @@ function Note2Flip() {
     )
 }
 
+function Sara({ handleSwitch }) {
+    return (
+        <button
+            className={`${cell} ${blue}`}
+            onClick={handleSwitch}
+        >
+            <Player
+                autoplay
+                loop
+                src={ss1}
+                style={{
+                    transformOrigin: 'center bottom',
+                    transform: 'translateY(2px) scale(0.6)'
+                }}
+            ></Player>
+        </button>)
+}
+
+function Cat({ handleSwitch }) {
+    return (
+        <button
+            className={`${cell} ${pink}`}
+            onClick={handleSwitch}
+        >
+            <Player
+                autoplay
+                loop
+                src={cc1}
+                style={{
+                    transform: 'scale(0.5) translateY(30%)'
+                }}
+            ></Player>
+        </button>)
+}
+
 function RenderCell({ cellRef }) {
     switch (cellRef) {
-        case 'sscc':
-            return (<CenterCell />);
+        case 's':
+            return <Sara />
+            break;
+        case 'c':
+            return <Cat />
             break;
         case 'ss':
             return (<SaraSing />);
@@ -229,7 +220,10 @@ function RenderJamGrid({ jamState }) {
 }
 
 export default function JamSession() {
-    const [jamState, setJamState] = useState([null, null, null, null, "sscc", null, null, null, null]);
+    const [jamState, setJamState] = useState([null, null, null, null, "s", null, null, null, null]);
+    const [isSara, setIsSara] = useState(true);
+
+
     return (
         <div className='row white'>
             <div className={`${jamGrid} narrow`}>
