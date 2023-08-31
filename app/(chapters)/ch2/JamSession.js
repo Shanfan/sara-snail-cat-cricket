@@ -177,12 +177,36 @@ function CoreCell({ isSara, switchSara }) {
     }
 }
 
+function calcClockwisePosition(n) {
+    switch (n) {
+        case 0:
+        case 1:
+            return n + 1;
+            break;
+        case 6:
+        case 7:
+            return n - 1;
+            break;
+        case 2:
+            return 4;
+            break;
+        case 3:
+            return 0;
+            break;
+        case 4:
+            return 7;
+            break;
+        case 5:
+            return 3;
+    }
+}
+
+// function locateMe(arr, e) {
+//     return arr.findIndex((e) => e != null )
+// }
+
 export default function JamSession() {
-
-    // jamState defines how the 3x3 grid is rendered, what image to show on each cell
     const [jamState, setJamState] = useState(Array(8).fill(null));
-
-    // isSara defines whether the 3x3 grid is a Sara-led board, or a Cat-lead board
     const [isSara, setIsSara] = useState(true);
     const [coreClickCount, setCoreClickCount] = useState(0);
 
@@ -197,16 +221,23 @@ export default function JamSession() {
     }
 
     function moveClockWise(name) {
-        // Find my name's postion in jamState
-        let myPosition = jamState.findIndex((e) => e != null && e === name);
-        // If my position is between 0 and 1
-        //     my position += 1
-        // If my position is between 6 and 7
-        //    my position -= 1
-        // Otherwise: 2 -> 4, 3 -> 0, 4 -> 7, 5 -> 3
-        // Update jamSate
+        const twinName = name.length == 2 ? name + 'f' : name.slice(0, 2);
+        const myOldPosition = jamState.findIndex((e) => e == name);
+        const twinOldPosition = jamState.findIndex((e) => e == twinName);
 
-        console.log(myPosition);
+        const myNewPosition = calcClockwisePosition(myOldPosition);
+        const twinNewPosition = calcClockwisePosition(twinOldPosition);
+
+        const nextJamState = jamState.slice();
+        nextJamState[myOldPosition] = null;
+        nextJamState[myNewPosition] = name;
+        nextJamState[twinOldPosition] = null;
+        nextJamState[twinNewPosition] = twinName;
+
+        setJamState(nextJamState);
+
+        console.log(`my name is ${name}, my twin's name is: ${twinName}`);
+        console.log(`My old position was ${myOldPosition}; My new position is ${myNewPosition}`);
 
     }
 
@@ -251,12 +282,6 @@ export default function JamSession() {
                 <CoreCell isSara={isSara} switchSara={() => switchSara()} />
                 <RenderJamGrid jamState={jamState.slice(-4)} />
             </div>
-
-            {/* Below is for troubleshoot only. Remove after the UI is done */}
-            <p className='narration'>
-                CoreClickCount is {coreClickCount} <br />
-                isSara is {isSara.toString()} <br />
-            </p>
         </div >
     )
 }
