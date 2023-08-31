@@ -20,6 +20,10 @@ function SaraSing() {
                 autoplay
                 loop
                 src={ss2}
+                style={{
+                    transformOrigin: 'center bottom',
+                    transform: 'scale(0.8)'
+                }}
             ></Player>
         </button>
     )
@@ -34,7 +38,7 @@ function SaraSingFlip() {
                 src={ss2}
                 style={{
                     transformOrigin: 'center bottom',
-                    transform: 'scaleX(-1)'
+                    transform: 'scale(-0.8, 0.8)'
                 }}
             ></Player>
         </button>
@@ -53,7 +57,6 @@ function CatShuffle() {
                 }}
             ></Player>
         </button>
-
     )
 }
 
