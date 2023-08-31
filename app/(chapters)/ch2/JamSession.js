@@ -20,9 +20,6 @@ function SaraSing() {
                 autoplay
                 loop
                 src={ss2}
-                style={{
-                    transform: 'translateY(5px)'
-                }}
             ></Player>
         </button>
     )
@@ -30,23 +27,23 @@ function SaraSing() {
 
 function SaraSingFlip() {
     return (
-        <botton className={`${cell}`}>
+        <button className={`${cell}`}>
             <Player
                 autoplay
                 loop
                 src={ss2}
                 style={{
                     transformOrigin: 'center bottom',
-                    transform: 'scaleX(-1) translateY(5px)'
+                    transform: 'scaleX(-1)'
                 }}
             ></Player>
-        </botton>
+        </button>
     )
 }
 
 function CatShuffle() {
     return (
-        <botton className={`${pink} ${cell}`}>
+        <button className={`${pink} ${cell}`}>
             <Player
                 autoplay
                 loop
@@ -55,7 +52,7 @@ function CatShuffle() {
                     transform: 'scale(0.9)'
                 }}
             ></Player>
-        </botton>
+        </button>
 
     )
 }
@@ -142,76 +139,71 @@ function Note2Flip() {
     )
 }
 
-function Sara({ handleSwitch }) {
-    return (
-        <button
-            className={`${cell} ${blue}`}
-            onClick={handleSwitch}
-        >
-            <Player
-                autoplay
-                loop
-                src={ss1}
-                style={{
-                    transformOrigin: 'center bottom',
-                    transform: 'translateY(2px) scale(0.6)'
-                }}
-            ></Player>
-        </button>)
-}
-
-function Cat({ handleSwitch }) {
-    return (
-        <button
-            className={`${cell} ${pink}`}
-            onClick={handleSwitch}
-        >
-            <Player
-                autoplay
-                loop
-                src={cc1}
-                style={{
-                    transform: 'scale(0.5) translateY(30%)'
-                }}
-            ></Player>
-        </button>)
+function CoreCell({ isSara, switchSara }) {
+    if (isSara) {
+        return (
+            <button
+                className={`${cell} ${blue}`}
+                onClick={switchSara}
+            >
+                <Player
+                    autoplay
+                    loop
+                    src={ss1}
+                    style={{
+                        transformOrigin: 'center bottom',
+                        transform: 'translateY(2px) scale(0.6)'
+                    }}
+                ></Player>
+            </button>)
+    } else {
+        return (
+            <button
+                className={`${cell} ${pink}`}
+                onClick={switchSara}
+            >
+                <Player
+                    autoplay
+                    loop
+                    src={cc1}
+                    style={{
+                        transform: 'scale(0.5) translateY(30%)'
+                    }}
+                ></Player>
+            </button>
+        )
+    }
 }
 
 function RenderCell({ cellRef }) {
     switch (cellRef) {
-        case 's':
-            return <Sara />
-            break;
-        case 'c':
-            return <Cat />
-            break;
         case 'ss':
-            return (<SaraSing />);
+            return <SaraSing />
             break;
         case 'ssf':
-            return (<SaraSingFlip />);
+            return <SaraSingFlip />
             break;
         case 'cc':
-            return (<CatShuffle />);
+            return <CatShuffle />
             break;
         case 'ccf':
-            return (<CatShuffleFlip />);
+            return <CatShuffleFlip />
             break;
         case 'n1':
-            return (<Note1 />)
+            return <Note1 />
             break;
         case 'n1f':
-            return (<Note1Flip />)
+            return <Note1Flip />
             break;
         case 'n2':
-            return (<Note2 />)
+            return <Note2 />
             break;
         case 'n2f':
-            return (<Note2Flip />)
+            return <Note2Flip />
             break;
         case null:
         default:
-            return (<div className={`${emptyCell}`}></div>)
+            return <div className={`${emptyCell}`}></div>
     }
 }
 
@@ -220,15 +212,42 @@ function RenderJamGrid({ jamState }) {
 }
 
 export default function JamSession() {
-    const [jamState, setJamState] = useState([null, null, null, null, "s", null, null, null, null]);
+
+    // jamState defines how the 3x3 grid is rendered, what image to show on each cell
+    const [jamState, setJamState] = useState([[null, null, null, null], [null, null, null, null]]);
+
+    // isSara defines whether the 3x3 grid is a Sara-led board, or a Cat-lead board
     const [isSara, setIsSara] = useState(true);
+    const [coreClickCount, setCoreClickCount] = useState(0);
+
+    function switchSara() {
+        setCoreClickCount(coreClickCount + 1);
+        setIsSara(isSara ? false : true);
+        updateJamSate(coreClickCount, isSara);
+    }
+    function updateJamSate(count, isTrue) {
+        if (count > 0 && isTrue) {
+            setJamState([[null, null, 'ss', null], [null, 'ssf', null, null]])
+        } else if (count > 0 && !isTrue) {
+            setJamState([['cc', null, null, null], [null, null, null, 'ccf']])
+        }
+    }
 
 
     return (
         <div className='row white'>
             <div className={`${jamGrid} narrow`}>
-                <RenderJamGrid jamState={jamState} />
+                <RenderJamGrid jamState={jamState[0]} />
+                <CoreCell isSara={isSara} switchSara={() => switchSara()} />
+                <RenderJamGrid jamState={jamState[1]} />
             </div>
+
+            {/* Below is for troubleshoot only. Remove after the UI is done */}
+            <p className='narration'>
+                CoreClickCount is {coreClickCount} <br />
+                isSara is {isSara.toString()} <br />
+                The board state is {jamState.toString()} <br />
+            </p>
         </div >
     )
 }
