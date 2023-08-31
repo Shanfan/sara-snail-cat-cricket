@@ -15,7 +15,7 @@ const { jamGrid, cell, emptyCell, blue, pink } = styles
 
 function SaraSing({ onCellClick }) {
     return (
-        <button className={`${cell}`} onClick={onCellClick}>
+        <button className={`${cell} ${blue}`} onClick={onCellClick}>
             <Player
                 autoplay
                 loop
@@ -31,7 +31,7 @@ function SaraSing({ onCellClick }) {
 
 function SaraSingFlip({ onCellClick }) {
     return (
-        <button className={`${cell}`} onClick={onCellClick}>
+        <button className={`${cell} ${blue}`} onClick={onCellClick}>
             <Player
                 autoplay
                 loop
@@ -201,9 +201,30 @@ function calcClockwisePosition(n) {
     }
 }
 
-// function locateMe(arr, e) {
-//     return arr.findIndex((e) => e != null )
-// }
+function calcCounterClockwisePosition(n) {
+    switch (n) {
+        case 5:
+        case 6:
+            return n + 1;
+            break;
+        case 2:
+        case 1:
+            return n - 1;
+            break;
+        case 0:
+            return 3;
+            break;
+        case 3:
+            return 5;
+            break;
+        case 4:
+            return 2;
+            break;
+        case 7:
+            return 4;
+    }
+}
+
 
 export default function JamSession() {
     const [jamState, setJamState] = useState(Array(8).fill(null));
@@ -220,54 +241,75 @@ export default function JamSession() {
         setIsSara(isSara ? false : true);
     }
 
-    function moveClockWise(name) {
+    function moveClockwise(name) {
         const twinName = name.length == 2 ? name + 'f' : name.slice(0, 2);
         const myOldPosition = jamState.findIndex((e) => e == name);
         const twinOldPosition = jamState.findIndex((e) => e == twinName);
-
         const myNewPosition = calcClockwisePosition(myOldPosition);
         const twinNewPosition = calcClockwisePosition(twinOldPosition);
-
         const nextJamState = jamState.slice();
-        nextJamState[myOldPosition] = null;
+
+        if (name.slice(0, 2) == 'ss' && (myOldPosition == 0 || myOldPosition == 7)) {
+            nextJamState[myOldPosition] = 'n1';
+            nextJamState[twinOldPosition] = 'n1f';
+        } else {
+            nextJamState[myOldPosition] = null;
+            nextJamState[twinOldPosition] = null;
+        }
+
         nextJamState[myNewPosition] = name;
-        nextJamState[twinOldPosition] = null;
         nextJamState[twinNewPosition] = twinName;
-
         setJamState(nextJamState);
+    }
 
-        console.log(`my name is ${name}, my twin's name is: ${twinName}`);
-        console.log(`My old position was ${myOldPosition}; My new position is ${myNewPosition}`);
+    function moveCounterClockwise(name) {
+        const twinName = name.length == 2 ? name + 'f' : name.slice(0, 2);
+        const myOldPosition = jamState.findIndex((e) => e == name);
+        const twinOldPosition = jamState.findIndex((e) => e == twinName);
+        const myNewPosition = calcCounterClockwisePosition(myOldPosition);
+        const twinNewPosition = calcCounterClockwisePosition(twinOldPosition);
+        const nextJamState = jamState.slice();
 
+        if (name.slice(0, 2) == 'cc' && (myOldPosition == 2 || myOldPosition == 5)) {
+            nextJamState[myOldPosition] = 'n2';
+            nextJamState[twinOldPosition] = 'n2f';
+        } else {
+            nextJamState[myOldPosition] = null;
+            nextJamState[twinOldPosition] = null;
+        }
+
+        nextJamState[myNewPosition] = name;
+        nextJamState[twinNewPosition] = twinName;
+        setJamState(nextJamState);
     }
 
     function RenderJamGrid({ jamState }) {
         return jamState.map((e, i) => {
             switch (e) {
                 case 'ss':
-                    return <SaraSing key={e} onCellClick={() => moveClockWise(e)} />
+                    return <SaraSing key={e} onCellClick={() => moveClockwise(e)} />
                     break;
                 case 'ssf':
-                    return <SaraSingFlip key={e} onCellClick={() => moveClockWise(e)} />
+                    return <SaraSingFlip key={e} onCellClick={() => moveCounterClockwise(e)} />
                     break;
                 case 'cc':
-                    return <CatShuffle key={e} onCellClick={() => moveClockWise(e)} />
+                    return <CatShuffle key={e} onCellClick={() => moveClockwise(e)} />
                     break;
                 case 'ccf':
-                    return <CatShuffleFlip key={e} onCellClick={() => moveClockWise(e)} />
+                    return <CatShuffleFlip key={e} onCellClick={() => moveCounterClockwise(e)} />
                     break;
-                // case 'n1':
-                //     return <Note1 />
-                //     break;
-                // case 'n1f':
-                //     return <Note1Flip />
-                //     break;
-                // case 'n2':
-                //     return <Note2 />
-                //     break;
-                // case 'n2f':
-                //     return <Note2Flip />
-                //     break;
+                case 'n1':
+                    return <Note1 key={e} />
+                    break;
+                case 'n1f':
+                    return <Note1Flip key={e} />
+                    break;
+                case 'n2':
+                    return <Note2 key={e} />
+                    break;
+                case 'n2f':
+                    return <Note2Flip key={e} />
+                    break;
                 case null:
                 default:
                     return <div key={i} className={`${emptyCell}`}></div>
