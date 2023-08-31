@@ -13,9 +13,9 @@ import styles from './ch2.module.css'
 
 const { jamGrid, cell, emptyCell, blue, pink } = styles
 
-function SaraSing() {
+function SaraSing({ onCellClick }) {
     return (
-        <button className={`${cell}`}>
+        <button className={`${cell}`} onClick={onCellClick}>
             <Player
                 autoplay
                 loop
@@ -29,9 +29,9 @@ function SaraSing() {
     )
 }
 
-function SaraSingFlip() {
+function SaraSingFlip({ onCellClick }) {
     return (
-        <button className={`${cell}`}>
+        <button className={`${cell}`} onClick={onCellClick}>
             <Player
                 autoplay
                 loop
@@ -45,9 +45,9 @@ function SaraSingFlip() {
     )
 }
 
-function CatShuffle() {
+function CatShuffle({ onCellClick }) {
     return (
-        <button className={`${pink} ${cell}`}>
+        <button className={`${pink} ${cell}`} onClick={onCellClick}>
             <Player
                 autoplay
                 loop
@@ -60,9 +60,9 @@ function CatShuffle() {
     )
 }
 
-function CatShuffleFlip() {
+function CatShuffleFlip({ onCellClick }) {
     return (
-        <button className={`${pink} ${cell}`}>
+        <button className={`${pink} ${cell}`} onClick={onCellClick}>
             <Player
                 autoplay
                 loop
@@ -126,7 +126,6 @@ function Note2() {
 }
 
 function Note2Flip() {
-
     return (
         <button className={`${cell}`}>
             <Player
@@ -178,46 +177,10 @@ function CoreCell({ isSara, switchSara }) {
     }
 }
 
-function RenderCell({ cellRef }) {
-    switch (cellRef) {
-        case 'ss':
-            return <SaraSing />
-            break;
-        case 'ssf':
-            return <SaraSingFlip />
-            break;
-        case 'cc':
-            return <CatShuffle />
-            break;
-        case 'ccf':
-            return <CatShuffleFlip />
-            break;
-        case 'n1':
-            return <Note1 />
-            break;
-        case 'n1f':
-            return <Note1Flip />
-            break;
-        case 'n2':
-            return <Note2 />
-            break;
-        case 'n2f':
-            return <Note2Flip />
-            break;
-        case null:
-        default:
-            return <div className={`${emptyCell}`}></div>
-    }
-}
-
-function RenderJamGrid({ jamState }) {
-    return jamState.map((cellRef, i) => <RenderCell key={i} cellRef={cellRef} />)
-}
-
 export default function JamSession() {
 
     // jamState defines how the 3x3 grid is rendered, what image to show on each cell
-    const [jamState, setJamState] = useState([[null, null, null, null], [null, null, null, null]]);
+    const [jamState, setJamState] = useState(Array(8).fill(null));
 
     // isSara defines whether the 3x3 grid is a Sara-led board, or a Cat-lead board
     const [isSara, setIsSara] = useState(true);
@@ -225,31 +188,74 @@ export default function JamSession() {
 
     function switchSara() {
         setCoreClickCount(coreClickCount + 1);
-        setIsSara(isSara ? false : true);
-        updateJamSate(coreClickCount, isSara);
-    }
-    function updateJamSate(count, isTrue) {
-        if (count > 0 && isTrue) {
-            setJamState([[null, null, 'ss', null], [null, 'ssf', null, null]])
-        } else if (count > 0 && !isTrue) {
-            setJamState([['cc', null, null, null], [null, null, null, 'ccf']])
+        if (coreClickCount > 0 && isSara) {
+            setJamState([null, null, 'ss', null, null, 'ssf', null, null])
+        } else if (coreClickCount > 0 && !isSara) {
+            setJamState(['cc', null, null, null, null, null, null, 'ccf'])
         }
+        setIsSara(isSara ? false : true);
     }
 
+    function moveClockWise(name) {
+        // Find my name's postion in jamState
+        let myPosition = jamState.findIndex((e) => e != null && e === name);
+        // If my position is between 0 and 1
+        //     my position += 1
+        // If my position is between 6 and 7
+        //    my position -= 1
+        // Otherwise: 2 -> 4, 3 -> 0, 4 -> 7, 5 -> 3
+        // Update jamSate
+
+        console.log(myPosition);
+
+    }
+
+    function RenderJamGrid({ jamState }) {
+        return jamState.map((e, i) => {
+            switch (e) {
+                case 'ss':
+                    return <SaraSing key={e} onCellClick={() => moveClockWise(e)} />
+                    break;
+                case 'ssf':
+                    return <SaraSingFlip key={e} onCellClick={() => moveClockWise(e)} />
+                    break;
+                case 'cc':
+                    return <CatShuffle key={e} onCellClick={() => moveClockWise(e)} />
+                    break;
+                case 'ccf':
+                    return <CatShuffleFlip key={e} onCellClick={() => moveClockWise(e)} />
+                    break;
+                // case 'n1':
+                //     return <Note1 />
+                //     break;
+                // case 'n1f':
+                //     return <Note1Flip />
+                //     break;
+                // case 'n2':
+                //     return <Note2 />
+                //     break;
+                // case 'n2f':
+                //     return <Note2Flip />
+                //     break;
+                case null:
+                default:
+                    return <div key={i} className={`${emptyCell}`}></div>
+            }
+        })
+    }
 
     return (
         <div className='row white'>
             <div className={`${jamGrid} narrow`}>
-                <RenderJamGrid jamState={jamState[0]} />
+                <RenderJamGrid jamState={jamState.slice(0, 4)} />
                 <CoreCell isSara={isSara} switchSara={() => switchSara()} />
-                <RenderJamGrid jamState={jamState[1]} />
+                <RenderJamGrid jamState={jamState.slice(-4)} />
             </div>
 
             {/* Below is for troubleshoot only. Remove after the UI is done */}
             <p className='narration'>
                 CoreClickCount is {coreClickCount} <br />
                 isSara is {isSara.toString()} <br />
-                The board state is {jamState.toString()} <br />
             </p>
         </div >
     )
