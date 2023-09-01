@@ -11,220 +11,7 @@ import note2 from '@/public/ch2/ch2_sn02_note2.json'
 
 import styles from './ch2.module.css'
 
-const { jamGrid, cell, emptyCell, blue, pink } = styles
-
-function SaraSing({ onCellClick }) {
-    return (
-        <button className={`${cell} ${blue}`} onClick={onCellClick}>
-            <Player
-                autoplay
-                loop
-                src={ss2}
-                style={{
-                    transformOrigin: 'center bottom',
-                    transform: 'scale(0.8)'
-                }}
-            ></Player>
-        </button>
-    )
-}
-
-function SaraSingFlip({ onCellClick }) {
-    return (
-        <button className={`${cell} ${blue}`} onClick={onCellClick}>
-            <Player
-                autoplay
-                loop
-                src={ss2}
-                style={{
-                    transformOrigin: 'center bottom',
-                    transform: 'scale(-0.8, 0.8)'
-                }}
-            ></Player>
-        </button>
-    )
-}
-
-function CatShuffle({ onCellClick }) {
-    return (
-        <button className={`${pink} ${cell}`} onClick={onCellClick}>
-            <Player
-                autoplay
-                loop
-                src={cc2}
-                style={{
-                    transform: 'scale(0.9)'
-                }}
-            ></Player>
-        </button>
-    )
-}
-
-function CatShuffleFlip({ onCellClick }) {
-    return (
-        <button className={`${pink} ${cell}`} onClick={onCellClick}>
-            <Player
-                autoplay
-                loop
-                src={cc2}
-                style={{
-                    transform: 'scale(-0.9, 0.9)'
-                }}
-            ></Player>
-        </button>
-    )
-}
-
-function Note1() {
-    return (
-        <button className={`${cell}`}>
-            <Player
-                autoplay
-                loop
-                src={note1}
-                style={{
-                    transform: 'scale(0.5)',
-                    opacity: 0.7,
-                }}
-            ></Player>
-        </button>
-    )
-}
-
-function Note1Flip() {
-    return (
-        <button className={`${cell}`}>
-            <Player
-                autoplay
-                loop
-                src={note1}
-                style={{
-                    transform: 'scale(0.5, -0.5)',
-                    opacity: 0.7,
-                }}
-            ></Player>
-        </button>
-    )
-}
-
-function Note2() {
-
-    return (
-        <button className={`${cell}`}>
-            <Player
-                autoplay
-                loop
-                src={note2}
-                style={{
-                    transform: 'scale(0.5)',
-                    opacity: 0.7,
-                }}
-            ></Player>
-        </button>
-    )
-
-}
-
-function Note2Flip() {
-    return (
-        <button className={`${cell}`}>
-            <Player
-                autoplay
-                loop
-                src={note2}
-                style={{
-                    transform: 'scale(-0.5)',
-                    opacity: 0.7,
-                }}
-            ></Player>
-        </button>
-    )
-}
-
-function CoreCell({ count, switchSara }) {
-    if (count % 2 === 0) {
-        return (
-            <button
-                className={`${cell} ${blue}`}
-                onClick={switchSara}
-            >
-                <Player
-                    autoplay
-                    loop
-                    src={ss1}
-                    style={{
-                        transformOrigin: 'center bottom',
-                        transform: 'translateY(2px) scale(0.6)'
-                    }}
-                ></Player>
-            </button>)
-    } else {
-        return (
-            <button
-                className={`${cell} ${pink}`}
-                onClick={switchSara}
-            >
-                <Player
-                    autoplay
-                    loop
-                    src={cc1}
-                    style={{
-                        transform: 'scale(0.5) translateY(30%)'
-                    }}
-                ></Player>
-            </button>
-        )
-    }
-}
-
-function calcClockwisePosition(n) {
-    switch (n) {
-        case 0:
-        case 1:
-            return n + 1;
-            break;
-        case 6:
-        case 7:
-            return n - 1;
-            break;
-        case 2:
-            return 4;
-            break;
-        case 3:
-            return 0;
-            break;
-        case 4:
-            return 7;
-            break;
-        case 5:
-            return 3;
-    }
-}
-
-function calcCounterClockwisePosition(n) {
-    switch (n) {
-        case 5:
-        case 6:
-            return n + 1;
-            break;
-        case 2:
-        case 1:
-            return n - 1;
-            break;
-        case 0:
-            return 3;
-            break;
-        case 3:
-            return 5;
-            break;
-        case 4:
-            return 2;
-            break;
-        case 7:
-            return 4;
-    }
-}
-
+const { jamGrid, cell, emptyCell, plainCell, blue, pink } = styles
 
 export default function JamSession() {
     const [jamState, setJamState] = useState(Array(8).fill(null));
@@ -339,4 +126,216 @@ export default function JamSession() {
             </div>
         </div >
     )
+}
+
+function calcClockwisePosition(n) {
+    switch (n) {
+        case 0:
+        case 1:
+            return n + 1;
+            break;
+        case 6:
+        case 7:
+            return n - 1;
+            break;
+        case 2:
+            return 4;
+            break;
+        case 3:
+            return 0;
+            break;
+        case 4:
+            return 7;
+            break;
+        case 5:
+            return 3;
+    }
+}
+
+function calcCounterClockwisePosition(n) {
+    switch (n) {
+        case 5:
+        case 6:
+            return n + 1;
+            break;
+        case 2:
+        case 1:
+            return n - 1;
+            break;
+        case 0:
+            return 3;
+            break;
+        case 3:
+            return 5;
+            break;
+        case 4:
+            return 2;
+            break;
+        case 7:
+            return 4;
+    }
+}
+
+function SaraSing({ onCellClick }) {
+    return (
+        <button className={`${cell} ${blue}`} onClick={onCellClick}>
+            <Player
+                autoplay
+                loop
+                src={ss2}
+                style={{
+                    transformOrigin: 'center bottom',
+                    transform: 'scale(0.8)'
+                }}
+            ></Player>
+        </button>
+    )
+}
+
+function SaraSingFlip({ onCellClick }) {
+    return (
+        <button className={`${cell} ${blue}`} onClick={onCellClick}>
+            <Player
+                autoplay
+                loop
+                src={ss2}
+                style={{
+                    transformOrigin: 'center bottom',
+                    transform: 'scale(-0.8, 0.8)'
+                }}
+            ></Player>
+        </button>
+    )
+}
+
+function CatShuffle({ onCellClick }) {
+    return (
+        <button className={`${pink} ${cell}`} onClick={onCellClick}>
+            <Player
+                autoplay
+                loop
+                src={cc2}
+                style={{
+                    transform: 'scale(0.9)'
+                }}
+            ></Player>
+        </button>
+    )
+}
+
+function CatShuffleFlip({ onCellClick }) {
+    return (
+        <button className={`${pink} ${cell}`} onClick={onCellClick}>
+            <Player
+                autoplay
+                loop
+                src={cc2}
+                style={{
+                    transform: 'scale(-0.9, 0.9)'
+                }}
+            ></Player>
+        </button>
+    )
+}
+
+function Note1() {
+    return (
+        <div className={`${plainCell}`}>
+            <Player
+                autoplay
+                loop
+                src={note1}
+                style={{
+                    transform: 'scale(0.5)',
+                    opacity: 0.7,
+                }}
+            ></Player>
+        </div>
+    )
+}
+
+function Note1Flip() {
+    return (
+        <div className={`${plainCell}`}>
+            <Player
+                autoplay
+                loop
+                src={note1}
+                style={{
+                    transform: 'scale(0.5, -0.5)',
+                    opacity: 0.7,
+                }}
+            ></Player>
+        </div>
+    )
+}
+
+function Note2() {
+
+    return (
+        <div className={`${plainCell}`}>
+            <Player
+                autoplay
+                loop
+                src={note2}
+                style={{
+                    transform: 'scale(0.5)',
+                    opacity: 0.7,
+                }}
+            ></Player>
+        </div>
+    )
+
+}
+
+function Note2Flip() {
+    return (
+        <div className={`${plainCell}`}>
+            <Player
+                autoplay
+                loop
+                src={note2}
+                style={{
+                    transform: 'scale(-0.5)',
+                    opacity: 0.7,
+                }}
+            ></Player>
+        </div>
+    )
+}
+
+function CoreCell({ count, switchSara }) {
+    if (count % 2 === 0) {
+        return (
+            <button
+                className={`${cell} ${blue}`}
+                onClick={switchSara}
+            >
+                <Player
+                    autoplay
+                    loop
+                    src={ss1}
+                    style={{
+                        transformOrigin: 'center bottom',
+                        transform: 'translateY(2px) scale(0.6)'
+                    }}
+                ></Player>
+            </button>)
+    } else {
+        return (
+            <button
+                className={`${cell} ${pink}`}
+                onClick={switchSara}
+            >
+                <Player
+                    autoplay
+                    loop
+                    src={cc1}
+                    style={{
+                        transform: 'scale(0.5) translateY(30%)'
+                    }}
+                ></Player>
+            </button>
+        )
+    }
 }

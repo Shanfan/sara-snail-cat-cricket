@@ -29,14 +29,21 @@
     border-style: dashed;
 }
 
+.plainCell {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEEAC9;
+    border-color: #dad989 #d0b75e #7c813e;
+    border-width: 2px;
+    border-style: solid;
+}
+
 .blue {
     background-color: rgb(126, 183, 212);
 }
 
 .pink {
     background-color: rgb(221, 149, 149);
-}
-
-.mustard {
-    background-color: rgb(208, 207, 132);
 }
