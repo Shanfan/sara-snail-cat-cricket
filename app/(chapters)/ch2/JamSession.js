@@ -141,8 +141,8 @@ function Note2Flip() {
     )
 }
 
-function CoreCell({ isSara, switchSara }) {
-    if (isSara) {
+function CoreCell({ count, switchSara }) {
+    if (count % 2 === 0) {
         return (
             <button
                 className={`${cell} ${blue}`}
@@ -228,17 +228,37 @@ function calcCounterClockwisePosition(n) {
 
 export default function JamSession() {
     const [jamState, setJamState] = useState(Array(8).fill(null));
-    const [isSara, setIsSara] = useState(true);
-    const [coreClickCount, setCoreClickCount] = useState(0);
+    const [count, setcount] = useState(0);
 
     function switchSara() {
-        setCoreClickCount(coreClickCount + 1);
-        if (coreClickCount > 0 && isSara) {
-            setJamState([null, null, 'ss', null, null, 'ssf', null, null])
-        } else if (coreClickCount > 0 && !isSara) {
-            setJamState(['cc', null, null, null, null, null, null, 'ccf'])
+        console.log(`Before state update: `, jamState);
+        const nextJamState = jamState.slice();
+        const currentTwin = count % 2 === 0 ? 'cc' : 'ss';
+        const nextTwin = currentTwin === 'cc' ? 'ss' : 'cc';
+
+        const getCurrentTwin = jamState
+            .map((e, i) => ({ na: e, po: i }))
+            .filter((e) => e.na !== null && e.na.startsWith(currentTwin));
+
+        if (!getCurrentTwin.length && count > 1) {
+            nextJamState[0] = nextTwin;
+            nextJamState[7] = nextTwin + 'f';
+        } else {
+            const swapTwin = getCurrentTwin.map((e) => ({
+                ...e,
+                na: e.na.replace(currentTwin, nextTwin),
+                po: calcClockwisePosition(calcClockwisePosition(e.po))
+            }));
+
+            console.log(getCurrentTwin, swapTwin);
+
+            getCurrentTwin.map((e) => { nextJamState[e.po] = null; });
+            swapTwin.map((e) => { nextJamState[e.po] = e.na; });
         }
-        setIsSara(isSara ? false : true);
+        setJamState(nextJamState);
+        setcount(count + 1);
+
+        console.log(count, currentTwin, nextTwin, `After state update:`, jamState)
     }
 
     function moveClockwise(name) {
@@ -249,7 +269,8 @@ export default function JamSession() {
         const twinNewPosition = calcClockwisePosition(twinOldPosition);
         const nextJamState = jamState.slice();
 
-        if (name.slice(0, 2) == 'ss' && (myOldPosition == 0 || myOldPosition == 7)) {
+        if (name.slice(0, 2) === 'ss' && (myOldPosition === 0 || myOldPosition === 7)) {
+            // TODO: check if you can use string.startsWith('ss') instead of the slice & comparison here
             nextJamState[myOldPosition] = 'n1';
             nextJamState[twinOldPosition] = 'n1f';
         } else {
@@ -321,7 +342,7 @@ export default function JamSession() {
         <div className='row white'>
             <div className={`${jamGrid} narrow`}>
                 <RenderJamGrid jamState={jamState.slice(0, 4)} />
-                <CoreCell isSara={isSara} switchSara={() => switchSara()} />
+                <CoreCell count={count} switchSara={() => switchSara()} />
                 <RenderJamGrid jamState={jamState.slice(-4)} />
             </div>
         </div >
