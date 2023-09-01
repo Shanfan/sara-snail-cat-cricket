@@ -231,11 +231,9 @@ export default function JamSession() {
     const [count, setcount] = useState(0);
 
     function switchSara() {
-        console.log(`Before state update: `, jamState);
         const nextJamState = jamState.slice();
         const currentTwin = count % 2 === 0 ? 'cc' : 'ss';
         const nextTwin = currentTwin === 'cc' ? 'ss' : 'cc';
-
         const getCurrentTwin = jamState
             .map((e, i) => ({ na: e, po: i }))
             .filter((e) => e.na !== null && e.na.startsWith(currentTwin));
@@ -249,16 +247,11 @@ export default function JamSession() {
                 na: e.na.replace(currentTwin, nextTwin),
                 po: calcClockwisePosition(calcClockwisePosition(e.po))
             }));
-
-            console.log(getCurrentTwin, swapTwin);
-
             getCurrentTwin.map((e) => { nextJamState[e.po] = null; });
             swapTwin.map((e) => { nextJamState[e.po] = e.na; });
         }
         setJamState(nextJamState);
         setcount(count + 1);
-
-        console.log(count, currentTwin, nextTwin, `After state update:`, jamState)
     }
 
     function moveClockwise(name) {
@@ -269,8 +262,7 @@ export default function JamSession() {
         const twinNewPosition = calcClockwisePosition(twinOldPosition);
         const nextJamState = jamState.slice();
 
-        if (name.slice(0, 2) === 'ss' && (myOldPosition === 0 || myOldPosition === 7)) {
-            // TODO: check if you can use string.startsWith('ss') instead of the slice & comparison here
+        if (name.startsWith('ss') && (myOldPosition === 0 || myOldPosition === 7)) {
             nextJamState[myOldPosition] = 'n1';
             nextJamState[twinOldPosition] = 'n1f';
         } else {
@@ -291,7 +283,7 @@ export default function JamSession() {
         const twinNewPosition = calcCounterClockwisePosition(twinOldPosition);
         const nextJamState = jamState.slice();
 
-        if (name.slice(0, 2) == 'cc' && (myOldPosition == 2 || myOldPosition == 5)) {
+        if (name.startsWith('cc') && (myOldPosition == 2 || myOldPosition == 5)) {
             nextJamState[myOldPosition] = 'n2';
             nextJamState[twinOldPosition] = 'n2f';
         } else {
