@@ -22,6 +22,12 @@ export default function JamSession() {
 
         const newResult = result.slice();
         const note = state.find((e) => e !== null && e.startsWith('n') && e.length == 2);
+        // .find() breaks when the first item meets the condition
+        // it doesn't mess up with our win/lose calculation,
+        // because n1 is always in front of n2 in our jamState
+        // However, if in the future we want to allow the music notes to move around
+        // We'll need to implement a stricter checkup condition.
+        // I think we are good for now. I'm so beat after these days of jamming.
         console.log('current note is ', note)
         console.log(state);
 
