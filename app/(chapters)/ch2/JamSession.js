@@ -16,6 +16,28 @@ const { jamGrid, cell, emptyCell, plainCell, blue, pink } = styles
 export default function JamSession() {
     const [jamState, setJamState] = useState(Array(8).fill(null));
     const [count, setcount] = useState(0);
+    const [result, setResult] = useState([]);
+
+    function checkResult(state) {
+
+        const newResult = result.slice();
+        const note = state.find((e) => e !== null && e.startsWith('n') && e.length == 2);
+        console.log('current note is ', note)
+        console.log(state);
+
+        if (note && note !== newResult[0]) {
+            newResult.push(note);
+        } else if (!note) {
+            newResult.pop();
+        }
+
+        if (newResult.length > 1) {
+            const match = newResult.indexOf('n2') - newResult.indexOf('n1')
+            console.log(match > 0 ? 'won!' : 'lost!')
+        }
+        setResult(newResult);
+        console.log(result, newResult, 'Keep trying!')
+    }
 
     function switchSara() {
         const nextJamState = jamState.slice();
@@ -25,9 +47,9 @@ export default function JamSession() {
             .map((e, i) => ({ na: e, po: i }))
             .filter((e) => e.na !== null && e.na.startsWith(currentTwin));
 
-        if (!getCurrentTwin.length && count > 1) {
-            nextJamState[0] = nextTwin;
-            nextJamState[7] = nextTwin + 'f';
+        if (!getCurrentTwin.length && count > 0) {
+            nextJamState[3] = nextTwin;
+            nextJamState[4] = nextTwin + 'f';
         } else {
             const swapTwin = getCurrentTwin.map((e) => ({
                 ...e,
@@ -60,6 +82,8 @@ export default function JamSession() {
         nextJamState[myNewPosition] = name;
         nextJamState[twinNewPosition] = twinName;
         setJamState(nextJamState);
+        checkResult(nextJamState);
+
     }
 
     function moveCounterClockwise(name) {
@@ -81,6 +105,7 @@ export default function JamSession() {
         nextJamState[myNewPosition] = name;
         nextJamState[twinNewPosition] = twinName;
         setJamState(nextJamState);
+        checkResult(nextJamState);
     }
 
     function RenderJamGrid({ jamState }) {
@@ -127,6 +152,8 @@ export default function JamSession() {
         </div >
     )
 }
+
+
 
 function calcClockwisePosition(n) {
     switch (n) {
