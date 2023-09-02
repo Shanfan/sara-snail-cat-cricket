@@ -5,6 +5,7 @@ import ChapterHeader from "@/util/ChapterHeader";
 import Image from "next/image";
 import importAllImages from "@/util/importImages";
 import JamSession from './JamSession';
+import Announcement from '@/util/Announcement';
 
 const images = importAllImages(
     require.context(
@@ -167,8 +168,10 @@ export default function Ch2() {
                     </div>
                 </div>
                 <JamSession />
+
             </article>
 
+            <Announcement />
 
         </>
     );

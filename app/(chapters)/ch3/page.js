@@ -2,6 +2,7 @@ import { Sedgwick_Ave } from 'next/font/google';
 
 import chapters from "@/util/chapterInfo";
 import ChapterHeader from "@/util/ChapterHeader";
+import Announcement from '@/util/Announcement';
 
 const sedgwick = Sedgwick_Ave({
     subsets: ['latin'],
@@ -21,6 +22,7 @@ export default function Ch3() {
             <article className={sedgwick.className}>
 
             </article>
+            <Announcement />
         </>
     );
 }

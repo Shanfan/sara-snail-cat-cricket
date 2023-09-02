@@ -1,3 +1,4 @@
+import Announcement from '@/util/Announcement'
 import styles from './about.module.css'
 
 export default function About() {
@@ -7,7 +8,10 @@ export default function About() {
                 <a href="/">← The Tale of Sara Snail and Cat Cricket</a>
                 <div>About</div>
             </nav>
-            <h1>About the project</h1>
+
+            <div style={{ display: 'block', margin: '10% auto', width: '60%' }}>
+                <Announcement />
+            </div>
         </>
     )
 }
