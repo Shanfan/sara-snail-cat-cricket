@@ -29,12 +29,19 @@ footer {
   border-top: var(--ui-border-color) 1px solid;
   padding: 0.5em 0;
   color: var(--info-text-color);
-  text-align: center;
   font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
   border: none;
+}
+
+a {
+  color: #5183db;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
