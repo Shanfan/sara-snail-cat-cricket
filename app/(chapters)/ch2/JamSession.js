@@ -11,23 +11,18 @@ import note2 from '@/public/ch2/ch2_sn02_note2.json'
 
 import styles from './ch2.module.css'
 
-const { jamGrid, cell, emptyCell, plainCell, blue, pink } = styles
+const { jamGrid, cell, emptyCell, plainCell, blue, pink, btnGameControl } = styles
 
 export default function JamSession() {
     const [jamState, setJamState] = useState(Array(8).fill(null));
-    const [count, setcount] = useState(0);
+    const [count, setCount] = useState(0);
     const [result, setResult] = useState([]);
+    const [gameover, setGameover] = useState(false)
 
     function checkResult(state) {
-
         const newResult = result.slice();
         const note = state.find((e) => e !== null && e.startsWith('n') && e.length == 2);
-        // .find() breaks when the first item meets the condition
-        // it doesn't mess up with our win/lose calculation,
-        // because n1 is always in front of n2 in our jamState
-        // However, if in the future we want to allow the music notes to move around
-        // We'll need to implement a stricter checkup condition.
-        // I think we are good for now. I'm so beat after these days of jamming.
+
         console.log('current note is ', note)
         console.log(state);
 
@@ -39,10 +34,11 @@ export default function JamSession() {
 
         if (newResult.length > 1) {
             const match = newResult.indexOf('n2') - newResult.indexOf('n1')
-            console.log(match > 0 ? 'won!' : 'lost!')
+            setGameover(match > 0 ? 'Well done!' : 'Not bad! But try to find the quaver note before the beam note.');
         }
+
         setResult(newResult);
-        console.log(result, newResult, 'Keep trying!')
+        console.log("Previous result: ", result, "New result: ", newResult)
     }
 
     function switchSara() {
@@ -66,7 +62,7 @@ export default function JamSession() {
             swapTwin.map((e) => { nextJamState[e.po] = e.na; });
         }
         setJamState(nextJamState);
-        setcount(count + 1);
+        setCount(count + 1);
     }
 
     function moveClockwise(name) {
@@ -114,20 +110,20 @@ export default function JamSession() {
         checkResult(nextJamState);
     }
 
-    function RenderJamGrid({ jamState }) {
+    function RenderJamGrid({ jamState, gameover }) {
         return jamState.map((e, i) => {
             switch (e) {
                 case 'ss':
-                    return <SaraSing key={e} onCellClick={() => moveClockwise(e)} />
+                    return <SaraSing key={e} gameover={gameover} onCellClick={() => moveClockwise(e)} />
                     break;
                 case 'ssf':
-                    return <SaraSingFlip key={e} onCellClick={() => moveCounterClockwise(e)} />
+                    return <SaraSingFlip key={e} gameover={gameover} onCellClick={() => moveCounterClockwise(e)} />
                     break;
                 case 'cc':
-                    return <CatShuffle key={e} onCellClick={() => moveClockwise(e)} />
+                    return <CatShuffle key={e} gameover={gameover} onCellClick={() => moveClockwise(e)} />
                     break;
                 case 'ccf':
-                    return <CatShuffleFlip key={e} onCellClick={() => moveCounterClockwise(e)} />
+                    return <CatShuffleFlip key={e} gameover={gameover} onCellClick={() => moveCounterClockwise(e)} />
                     break;
                 case 'n1':
                     return <Note1 key={e} />
@@ -151,13 +147,28 @@ export default function JamSession() {
     return (
         <div className='row white'>
             <div className={`${jamGrid} narrow`}>
-                <RenderJamGrid jamState={jamState.slice(0, 4)} />
+                <RenderJamGrid jamState={jamState.slice(0, 4)} gameover={gameover} />
                 <CoreCell count={count} switchSara={() => switchSara()} />
-                <RenderJamGrid jamState={jamState.slice(-4)} />
+                <RenderJamGrid jamState={jamState.slice(-4)} gameover={gameover} />
+            </div>
+            <div className='narrow'>
+                <p className='narration'>
+                    Game result: {gameover ? gameover : 'Not yet. Keep moving!'}
+                </p>
+                <button className={`${btnGameControl}`}
+                    disabled={!gameover}
+                    onClick={() => {
+                        setJamState(Array(8).fill(null));
+                        setGameover(false);
+                        setCount(0);
+                        setResult([]);
+                    }}
+                >Play again</button>
             </div>
         </div >
     )
 }
+
 
 
 
@@ -209,9 +220,9 @@ function calcCounterClockwisePosition(n) {
     }
 }
 
-function SaraSing({ onCellClick }) {
+function SaraSing({ onCellClick, gameover }) {
     return (
-        <button className={`${cell} ${blue}`} onClick={onCellClick}>
+        <button className={`${cell} ${blue}`} onClick={onCellClick} disabled={gameover}>
             <Player
                 autoplay
                 loop
@@ -225,9 +236,9 @@ function SaraSing({ onCellClick }) {
     )
 }
 
-function SaraSingFlip({ onCellClick }) {
+function SaraSingFlip({ onCellClick, gameover }) {
     return (
-        <button className={`${cell} ${blue}`} onClick={onCellClick}>
+        <button className={`${cell} ${blue}`} onClick={onCellClick} disabled={gameover}>
             <Player
                 autoplay
                 loop
@@ -241,9 +252,9 @@ function SaraSingFlip({ onCellClick }) {
     )
 }
 
-function CatShuffle({ onCellClick }) {
+function CatShuffle({ onCellClick, gameover }) {
     return (
-        <button className={`${pink} ${cell}`} onClick={onCellClick}>
+        <button className={`${pink} ${cell}`} onClick={onCellClick} disabled={gameover}>
             <Player
                 autoplay
                 loop
@@ -256,9 +267,9 @@ function CatShuffle({ onCellClick }) {
     )
 }
 
-function CatShuffleFlip({ onCellClick }) {
+function CatShuffleFlip({ onCellClick, gameover }) {
     return (
-        <button className={`${pink} ${cell}`} onClick={onCellClick}>
+        <button className={`${pink} ${cell}`} onClick={onCellClick} disabled={gameover}>
             <Player
                 autoplay
                 loop

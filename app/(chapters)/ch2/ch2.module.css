@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    width: 70vmin;
 }
 
 .cell {
@@ -46,4 +47,20 @@
 
 .pink {
     background-color: rgb(221, 149, 149);
+}
+
+.btnGameControl {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    color: white;
+}
+
+.btnGameControl:disabled {
+    background-color: #aaa;
+}
+
+.btnGameControl:not(:disabled) {
+    cursor: pointer;
+    background-color: #222;
 }
