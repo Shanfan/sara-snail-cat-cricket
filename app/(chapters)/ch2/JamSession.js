@@ -21,20 +21,24 @@ export default function JamSession() {
 
     function checkResult(state) {
         const newResult = result.slice();
-        const note = state.find((e) => e !== null && e.startsWith('n') && e.length == 2);
+        const notes = state.filter((e) => e !== null && e.startsWith('n') && e.length == 2);
 
-        console.log('current note is ', note)
+        console.log('current notes are ', notes)
         console.log(state);
 
-        if (note && note !== newResult[0]) {
-            newResult.push(note);
-        } else if (!note) {
+        if (notes.length) {
+            notes.forEach((e) => {
+                if (!result.includes(e)) {
+                    newResult.push(e)
+                }
+            });
+        } else {
             newResult.pop();
         }
 
         if (newResult.length > 1) {
             const match = newResult.indexOf('n2') - newResult.indexOf('n1')
-            setGameover(match > 0 ? 'Well done!' : 'Not bad! But try to find the quaver note before the beam note.');
+            setGameover(match > 0 ? 'Well done!' : 'Not bad! But try to find ♪ before the 🎵.');
         }
 
         setResult(newResult);
@@ -152,7 +156,7 @@ export default function JamSession() {
                 <RenderJamGrid jamState={jamState.slice(-4)} gameover={gameover} />
             </div>
             <div className='narrow'>
-                <p className='narration'>
+                <p style={{ paddingBottom: '1em' }}>
                     Game result: {gameover ? gameover : 'Not yet. Keep moving!'}
                 </p>
                 <button className={`${btnGameControl}`}
@@ -168,9 +172,6 @@ export default function JamSession() {
         </div >
     )
 }
-
-
-
 
 function calcClockwisePosition(n) {
     switch (n) {
