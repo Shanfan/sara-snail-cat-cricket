@@ -7,9 +7,9 @@ Second, I want to bring searchable text to webcomics. Comics are a combination o
 
 Last but not the least, responsive web design can make comics adaptable for varying screen sizes. I want to honor the readers’ choice of reading device. Whether they choose to view the content on their small mobile device, or on their large desktop screen, I don’t want the format of the images hindering the message. 
 
-You can view the live comic... once I finish publishing it.
+For now, this project is under development. You can view the completed chapters at https://sara-snail-cat-cricket.vercel.app/  
 
-For now, this project is under development. You can view it from your local machine:
+Alternatively, you can view it from your local machine:
 
 ## Getting Started
 
