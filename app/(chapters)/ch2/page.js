@@ -165,9 +165,15 @@ export default function Ch2() {
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='narration'>Shall we play?</p>
+                        <p className='narration'>Yeeeeaaaasss!!</p>
                     </div>
                 </div>
                 <JamSession />
+                <div className='row black'>
+                    <div className='wide'>
+                        party animation
+                    </div>
+                </div>
 
             </article>
 
