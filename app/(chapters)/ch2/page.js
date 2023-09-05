@@ -5,13 +5,14 @@ import ChapterHeader from "@/util/ChapterHeader";
 import Image from "next/image";
 import importAllImages from "@/util/importImages";
 import JamSession from './JamSession';
+import DanceParty from './DanceParty';
 import Announcement from '@/util/Announcement';
 
 const images = importAllImages(
     require.context(
         '@/public/ch2/',
         false,
-        /\.(png|jpe?g|svg)$/
+        /\.(gif|png|jpe?g|svg)$/
     )
 );
 
@@ -169,11 +170,8 @@ export default function Ch2() {
                     </div>
                 </div>
                 <JamSession />
-                <div className='row black'>
-                    <div className='wide'>
-                        party animation
-                    </div>
-                </div>
+                <DanceParty />
+
 
             </article>
 
