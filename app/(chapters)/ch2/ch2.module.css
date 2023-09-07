@@ -64,3 +64,14 @@
     cursor: pointer;
     background-color: #222;
 }
+
+.fly {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(240, 239, 207);
+    border-radius: 50%;
+    box-shadow: 0 0 1rem #daa089;
+    filter: blur(2px);
+    opacity: 0;
+}
