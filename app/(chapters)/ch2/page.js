@@ -5,7 +5,6 @@ import ChapterHeader from "@/util/ChapterHeader";
 import Image from "next/image";
 import importAllImages from "@/util/importImages";
 import DanceParty from './DanceParty';
-import Announcement from '@/util/Announcement';
 import styles from './ch2.module.css';
 
 const images = importAllImages(

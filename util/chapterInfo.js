@@ -15,7 +15,7 @@ const chapterInfo = {
         'name': 'Chapter 3',
         'href': '/ch3',
         'title': 'The Autumn Foliage',
-        'description': 'How To Compromise On Style And Win Friends (Coming soon!)',
+        'description': 'How To Compromise On Style And Win Friends',
     },
     four: {
         'name': 'Chapter 4',
