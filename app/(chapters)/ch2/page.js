@@ -4,9 +4,9 @@ import chapters from "@/util/chapterInfo";
 import ChapterHeader from "@/util/ChapterHeader";
 import Image from "next/image";
 import importAllImages from "@/util/importImages";
-import JamSession from './JamSession';
 import DanceParty from './DanceParty';
 import Announcement from '@/util/Announcement';
+import styles from './ch2.module.css';
 
 const images = importAllImages(
     require.context(
@@ -21,6 +21,8 @@ const sedgwick = Sedgwick_Ave({
     display: 'swap',
     weight: '400'
 })
+
+const { jamGrid, cell, emptyCell } = styles;
 
 export default function Ch2() {
     return (
@@ -38,6 +40,9 @@ export default function Ch2() {
                             alt="Sara Snail demonstrates how to shuffle dance"
                             src={images['./ch2_sn00_pn00.jpg']}
                             className="hero"
+                            style={{
+                                padding: '5rem 0'
+                            }}
                             priority
                         />
                         <div
@@ -75,6 +80,7 @@ export default function Ch2() {
                             className="speechBubble left"
                             style={{
                                 right: '0',
+                                top: '0'
                             }}
                         >
                             Whoa! Right! I see no move. <br />
@@ -120,7 +126,7 @@ export default function Ch2() {
                             className="speechBubble left"
                             style={{
                                 left: '40%',
-                                top: '20%',
+                                top: '10%',
                             }}
                         >
                             Wait. Did you just make that sound?
@@ -129,7 +135,7 @@ export default function Ch2() {
                             className="speechBubble right"
                             style={{
                                 left: '60%',
-                                top: '50%',
+                                bottom: '0',
                             }}
                         >
                             Oops. Sorry.
@@ -142,6 +148,7 @@ export default function Ch2() {
                             alt=""
                             src={images['./ch2_sn01_pn02.jpg']}
                             className='hero'
+                            style={{ padding: '5rem 0' }}
                         />
                         <div
                             className="speechBubble right"
@@ -165,17 +172,43 @@ export default function Ch2() {
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
-                        <p className='narration'>Shall we play?</p>
-                        <p className='narration'>Yeeeeaaaasss!!</p>
+                        <p className='narration'>Well, maybe we can play together.</p>
                     </div>
                 </div>
-                <JamSession />
+                <div className='row white'>
+                    <div className={`${jamGrid} narrow`}>
+                        <Image className={`${cell} panelM`} style={{ gridColumnStart: 2 }} alt="" src={images['./ch2_sn02_ss1.gif']} />
+                        <Image className={`${cell} panelM`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_note2.gif']} />
+                        <Image className={`${cell} panelM`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_cc1.gif']} />
+                        <Image className={`${cell} panelM`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_note2.gif']} />
+                        <Image alt="" className={`${cell} panelM`} style={{ gridRowStart: 3, transform: 'scale(-1, 1)' }} src={images['./ch2_sn02_ss2.gif']} />
+                        <Image alt="" className={`${cell} panelM`} style={{ gridRowStart: 3 }} src={images['./ch2_sn02_note1.gif']} />
+                        <Image alt="" className={`${cell} panelM`} style={{ gridRowStart: 3 }} src={images['./ch2_sn02_ss2.gif']} />
+                        <Image alt="" className={`${cell} panelM`} style={{ gridColumnStart: 2 }} src={images['./ch2_sn02_cc2.gif']} />
+                    </div>
+                </div>
+                <div className='row white'>
+                    <div className='narrow'>
+                        <p className='narration' >Yeeeeaaaasss!!</p>
+                        <p className='narration' >Then we have a party...</p>
+                    </div>
+                </div>
+                <div className='row black'>
+                    <Image alt="" className='hero' style={{ transform: 'scale(1, -1)', margin: 0, padding: 0 }} src={images['./ch2_sn03.jpg']} />
+                </div>
                 <DanceParty />
+                <div className='row white'>
+                    <Image alt="" className='hero' src={images['./ch2_sn03.jpg']} />
+                    <div className='narrow'>
+                        <Image alt='moon and starts' className='panelL' src={images['./ch2_sn04_pn1.jpg']} />
+                        <p className='narration'>What a wonderful evening...</p>
+                        <Image alt='Sara and Cat lying together, resting' className='panelL' src={images['./ch2_sn04_pn2.jpg']} />
+                    </div>
+                </div>
 
 
             </article>
 
-            <Announcement />
 
         </>
     );

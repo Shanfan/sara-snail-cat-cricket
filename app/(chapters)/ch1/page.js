@@ -41,7 +41,7 @@ export default function Ch1() {
                         <p className="narration">
                             It was a crispy summer night.<br />
                             The air finally cooled down. <br />
-                            The grassland glistened with dewdrops. <br />
+                            The vast grassland glistened under the moonlight. <br />
                         </p>
                     </div>
                     <div className="wide">

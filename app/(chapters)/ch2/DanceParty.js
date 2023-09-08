@@ -7,39 +7,36 @@ import { useEffect } from "react";
 import saraDance from '@/public/ch2/ch2_sn03_snail.json';
 import catDance from '@/public/ch2/ch2_sn03_cricket.json';
 import bg from '@/public/ch2/ch2_sn03_bg.jpg';
-import fg from '@/public/ch2/ch2_sn03_front.gif';
+import fg from '@/public/ch2/ch2_sn03_front.png';
 import styles from './ch2.module.css';
 
 const { fly } = styles;
 
 
 export default function DanceParty() {
-
     useEffect(() => {
         const scene = document.querySelector('#danceScene');
         const flies = document.querySelectorAll('#danceScene li');
-        let tl = gsap.timeline({ repeat: -1 });
 
         flies.forEach((e) => {
+            let tl = gsap.timeline({ repeat: -1, yoyo: true });
             gsap.set(e, {
                 left: gsap.utils.random(200, scene.offsetWidth - 200),
                 top: gsap.utils.random(200, scene.offsetHeight - 200),
                 scale: gsap.utils.random(0.7, 1.5, 0.1),
-                opacity: gsap.utils.random(.5, .9, .1),
+                opacity: gsap.utils.random(.5, .7, .1),
             })
-        })
 
-        flies.forEach((e) => {
             tl.to(e, {
-                x: gsap.utils.random(-50, 50),
-                y: gsap.utils.random(-70, 30),
+                x: gsap.utils.random(-150, 150),
+                y: gsap.utils.random(-100, 100),
                 duration: gsap.utils.random(5, 7, .2),
                 ease: 'Power0.easeNone'
             }, '<').to(e, {
                 opacity: 0,
                 x: gsap.utils.random(-10, 10),
                 y: gsap.utils.random(-10, 10),
-                duration: 0.5,
+                duration: 5,
             }, '>')
         })
     })
@@ -81,17 +78,6 @@ export default function DanceParty() {
                     style={{ top: '7%' }}
                 />
                 <ul id='flies' style={{ listStyle: 'none' }}>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
-                    <li className={fly}></li>
                     <li className={fly}></li>
                     <li className={fly}></li>
                     <li className={fly}></li>
