@@ -1,7 +1,6 @@
 import { Sedgwick_Ave } from 'next/font/google';
 import chapters from "@/util/chapterInfo";
 import ChapterHeader from "@/util/ChapterHeader";
-
 import Image from "next/image";
 import importAllImages from "@/util/importImages";
 

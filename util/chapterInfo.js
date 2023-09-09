@@ -27,7 +27,7 @@ const chapterInfo = {
         'name': 'Chapter 5',
         'href': '/ch5',
         'title': 'The End of a Season',
-        'description': 'How The Party Ended When The Music Stopped (Coming soon!)',
+        'description': 'How The Party Ended When The Music Stopped',
     }
 }
 
