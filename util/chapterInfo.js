@@ -21,7 +21,7 @@ const chapterInfo = {
         'name': 'Chapter 4',
         'href': '/ch4',
         'title': 'The September Issue',
-        'description': 'How To Live Fast And Take It Easy (Coming soon!)',
+        'description': 'How To Live Fast And Take It Easy',
     },
     five: {
         'name': 'Chapter 5',
