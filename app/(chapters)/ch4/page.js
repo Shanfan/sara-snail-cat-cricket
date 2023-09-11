@@ -118,14 +118,14 @@ export default function Ch4() {
                     <div className='narrow'>
                         <p className='speechBubble' style={{ display: 'inline-block', position: 'inherit' }}>
                             Most of us don&rsquo;t even live to see the September Issue...<br />
-                            See -
+                            Look -
                         </p>
 
                     </div>
                     <div className='wide'>
                         <Image alt="" className='hero' src={images['./ch4_sn03_pn8.jpg']} />
                         <p className='speechBubble right' style={{ left: '15%', bottom: '20%', width: '28rem' }}>
-                            My badass cousin was swallowed by a bluebird right after the photoshoot!
+                            My badass cousin was swallowed by a bluebird right after the photoshoot.
                             Mind you that bird was part of the camera crew.
                         </p>
                     </div>

@@ -16,7 +16,7 @@ const chapterLinks = Object.values(chapters).map(
   chapter => ({ 'name': chapter.name, 'href': chapter.href })
 )
 
-const navLinks = [...chapterLinks, { 'name': 'About', 'href': '/about' }]
+const navLinks = [...chapterLinks, { 'name': 'Extras', 'href': '/extras' }]
 
 export default function Home() {
   return (

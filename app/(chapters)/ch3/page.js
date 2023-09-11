@@ -101,7 +101,7 @@ export default function Ch3() {
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble' style={{ right: '20%', width: '20rem' }}>
-                            ...the forest is very veautiful today, with the colorful leaves and everything...
+                            ...the forest is very beautiful today, with the colorful leaves and everything...
                         </p>
                         <p className='speechBubble right' style={{ left: '20%', top: '50%', width: '20rem' }}>
                             Yet we are on this spotty yellow plant. What&rsquo;s up with these spots anyway?
@@ -112,7 +112,7 @@ export default function Ch3() {
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble left' style={{ left: '20%' }}>
-                            I don&rsquo;t know... It&rsquo;s a comfy spot though.
+                            I don&rsquo;t know... <br /> It&rsquo;s a comfy spot though.
                         </p>
                         <Image alt="" className='panelL' src={images['./ch3_sn02_pn3.jpg']} />
                         <p className='speechBubble rightTop' style={{ right: '10%', bottom: 0, width: '30rem' }}>
