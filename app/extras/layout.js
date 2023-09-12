@@ -20,7 +20,7 @@ export default function ExtrasLayout({ children }) {
                         width={"auto"}
                     />
                 </Link>
-                <div>Extras</div>
+                <Link href='/extras'>Extras</Link>
             </nav>
             {children}
             <Footer />

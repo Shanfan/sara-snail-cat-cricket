@@ -26,7 +26,7 @@
     transition: all 0.3s ease;
 }
 
-.navbar>div {
+.navbar>a:last-child {
     position: relative;
     margin-left: auto;
     height: 100%;
@@ -35,7 +35,7 @@
     border-left: #000 1px solid;
 }
 
-.navbar>div::after {
+.navbar>a:last-child::after {
     position: absolute;
     bottom: 0;
     content: '';
@@ -44,7 +44,6 @@
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 5px solid #000;
-
 }
 
 .wrapper {
@@ -59,7 +58,7 @@
     padding: 5%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .control {
@@ -91,28 +90,54 @@
 }
 
 .info {
+    --pos: calc(50% - 0.5rem);
+    position: relative;
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto;
+    margin: calc(1rem + 20px) auto 0;
     padding: 1.5rem;
     display: block;
     background-color: white;
     border: 2px solid #000;
     box-shadow: #000 4px 4px 0;
+    transition: all 0.5s ease;
 }
 
-.info button {
-    font-size: 1.2rem;
+.info::before {
+    --sz: calc(1rem + 3px);
+    position: absolute;
+    top: calc(-1 * var(--sz));
+    left: calc(var(--pos) - 2px);
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: var(--sz) solid transparent;
+    border-right: var(--sz) solid transparent;
+    border-bottom: var(--sz) solid black;
+}
+
+.info::after {
+    position: absolute;
+    top: -1rem;
+    left: var(--pos);
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid white;
+}
+
+.info a {
+    font-size: 1rem;
     padding: 0.75em 1.2em;
     border-radius: 10px;
     color: #F3F1EB;
     background-color: #333;
-    text-transform: uppercase;
     float: right;
 }
 
-.info button:hover {
-    cursor: pointer;
+.info a:hover {
     transform: scale(0.95);
     background-color: #222;
     box-shadow: #222 4px 4px 0;
