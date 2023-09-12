@@ -1,17 +1,46 @@
-import Announcement from '@/util/Announcement'
-import styles from './extras.module.css'
+// import { Player } from '@lottiefiles/lottie-player'
+import Image from 'next/image'
+import ss1 from '@/public/extras/saraStare.png'
+import vogue from '@/public/extras/vogueCover.jpg'
+import confidential from '@/public/extras/confidential.jpg'
 
-export default function About() {
-    return (
-        <>
-            <nav className={styles.navbar}>
-                <a href="/">← The Tale of Sara Snail and Cat Cricket</a>
-                <div>Extras</div>
-            </nav>
+export default function Extras() {
+    return (<main>
+        <div className="control">
+            <button>
+                <Image
+                    className='icon'
+                    alt="icon of the music puzze app"
+                    src={ss1}
+                    style={{
+                        backgroundColor: 'rgb(126, 183, 212)'
+                    }}
+                />
+            </button>
 
-            <div style={{ display: 'block', margin: '10% auto', width: '60%' }}>
-                <Announcement />
+            <button>
+                <Image
+                    className='icon'
+                    alt="icon of the Critter Vogue magazine"
+                    src={vogue}
+                />
+
+            </button>
+            <button>
+                <Image
+                    className='icon'
+                    alt="icon of confidential information"
+                    src={confidential}
+                />
+            </button>
+
+        </div>
+        <div className="info">
+            <div>
+                <h2>Music Puzzle</h2>
+                <p>A push-tile game that gets the music jam going!</p>
             </div>
-        </>
-    )
+            <button>Go!</button>
+        </div>
+    </main>)
 }

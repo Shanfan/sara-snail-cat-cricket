@@ -20,16 +20,16 @@ html {
 
 body {
   width: 100vw;
-  background-color: var(--paper-color);
-  background-image: var(--noise);
+  background-color: #F3F2E7;
+  /* background-image: var(--noise); */
 }
 
 footer {
   width: 100%;
-  border-top: var(--ui-border-color) 1px solid;
-  padding: 0.5em 0;
+  border-top: #000 2px solid;
+  padding: 0.15em 0;
   color: var(--info-text-color);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   display: flex;
   align-items: center;
   justify-content: center;

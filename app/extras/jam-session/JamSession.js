@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { Player } from '@lottiefiles/react-lottie-player'
+// consider replacing lottie file with GIF...
+// やっばり。。。 lottiefile is better suited for SVG vector animation
 
 import ss1 from '@/public/ch2/ch2_sn02_ss1.json'
 import ss2 from '@/public/ch2/ch2_sn02_ss2.json'
@@ -9,7 +11,7 @@ import cc2 from '@/public/ch2/ch2_sn02_cc1.json'
 import note1 from '@/public/ch2/ch2_sn02_note1.json'
 import note2 from '@/public/ch2/ch2_sn02_note2.json'
 
-import styles from './ch2.module.css'
+import styles from '../../(chapters)/ch2/ch2.module.css'
 
 const { jamGrid, cell, emptyCell, plainCell, blue, pink, btnGameControl } = styles
 
