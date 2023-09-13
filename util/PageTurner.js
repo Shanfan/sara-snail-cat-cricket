@@ -11,7 +11,7 @@ export default function PageTurner({ style }) {
     return (
         <nav className={style}>
             <a href={prevPage > 0 ? `ch${prevPage}` : '/'}>← Prev</a>
-            <a href={nextPage <= 5 ? `ch${nextPage}` : '/about'}>Next → </a>
+            <a href={nextPage <= 5 ? `ch${nextPage}` : '/extras'}>Next → </a>
         </nav>
     )
 }

@@ -35,7 +35,7 @@ export default function DisturbedTea() {
     })
 
     return (
-        <div className="row white" id="sn03_disturbed_tea">
+        <div className="row white" id="sn03_disturbed_tea" style={{ overflow: 'hidden' }}>
             <div className="narrow layers">
                 <Image
                     className="main panelL"

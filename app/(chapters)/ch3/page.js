@@ -24,7 +24,6 @@ export default function Ch3() {
             <div className='row white'>
                 <ChapterHeader
                     currentChapter={chapters.three}
-                    style="chapterHeader"
                 />
             </div>
             <article className={sedgwick.className}>
@@ -51,62 +50,62 @@ export default function Ch3() {
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble right'>Don&rsquo;t look now, <br />but we&rsquo;re being photographed.</p>
-                        <Image alt="" className='panelL' src={images['./ch3_sn02_pn3.jpg']} />
+                        <Image alt="" className='panelL' src={images['./ch3_sn02_pn3.jpg']} style={{ padding: '4rem 0' }} />
                         <p className='speechBubble leftTop' style={{ left: '40%', bottom: 0 }}>Okay. Are they getting my good side?</p>
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble left'>You are perfectly symmetrical. </p>
-                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn1.jpg']} />
+                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn1.jpg']} style={{ paddingTop: '2rem' }} />
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble right'>Right, right. If you say so. </p>
-                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn2.jpg']} />
+                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn2.jpg']} style={{ paddingTop: '3rem' }} />
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble right'>I do. </p>
-                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn1.jpg']} />
+                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn1.jpg']} style={{ paddingTop: '2rem' }} />
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble right'>What a pity that this is the spot we are being recorded. </p>
-                        <Image alt="" className='panelL' src={images['./ch3_sn03_pn3.jpg']} />
+                        <Image alt="" className='panelL' src={images['./ch3_sn03_pn3.jpg']} style={{ paddingTop: '3rem' }} />
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble right'>What do you mean? </p>
-                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn4.jpg']} />
+                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn4.jpg']} style={{ paddingTop: '2rem' }} />
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
                         <p className='speechBubble left' style={{ right: '20%' }}>... ...</p>
-                        <Image alt="" className='panelL' src={images['./ch3_sn02_pn3.jpg']} />
-                        <p className='speechBubble rightTop' style={{ left: '20%', bottom: 0 }}>... ??</p>
+                        <Image alt="" className='panelL' src={images['./ch3_sn02_pn3.jpg']} style={{ padding: '2rem 0' }} />
+                        <p className='speechBubble rightTop' style={{ left: '7%', bottom: 0 }}>... ??</p>
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
-                        <p className='speechBubble left' style={{ right: '20%', top: '40%' }}>You see...</p>
+                        <p className='speechBubble left' style={{ right: '20%', top: '30%' }}>You see...</p>
                         <Image alt="" className='panelL' src={images['./ch3_sn04_pn1.jpg']} />
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
-                        <p className='speechBubble' style={{ right: '20%', width: '20rem' }}>
+                        <p className='speechBubble' style={{ margin: '0 auto', width: '300px', maxWidth: '100%' }}>
                             ...the forest is very beautiful today, with the colorful leaves and everything...
                         </p>
-                        <p className='speechBubble right' style={{ left: '20%', top: '50%', width: '20rem' }}>
+                        <p className='speechBubble right' style={{ left: '20%', top: '40%', width: '15rem', maxWidth: '100%' }}>
                             Yet we are on this spotty yellow plant. What&rsquo;s up with these spots anyway?
                         </p>
-                        <Image alt="" className='panelL' src={images['./ch3_sn04_pn2.jpg']} />
+                        <Image alt="" className='panelL' src={images['./ch3_sn04_pn2.jpg']} style={{ padding: '5rem 0' }} />
                     </div>
                 </div>
                 <div className='row white'>
@@ -114,16 +113,16 @@ export default function Ch3() {
                         <p className='speechBubble left' style={{ left: '20%' }}>
                             I don&rsquo;t know... <br /> It&rsquo;s a comfy spot though.
                         </p>
-                        <Image alt="" className='panelL' src={images['./ch3_sn02_pn3.jpg']} />
-                        <p className='speechBubble rightTop' style={{ right: '10%', bottom: 0, width: '30rem' }}>
+                        <Image alt="" className='panelL' src={images['./ch3_sn02_pn3.jpg']} style={{ padding: '5rem 0' }} />
+                        <p className='speechBubble rightTop' style={{ right: '10%', bottom: 0, maxWidth: '350px' }}>
                             Come on, don&rsquo;t you see my point? Yellow isn&rsquo;t exactly your best color either.
                         </p>
                     </div>
                 </div>
                 <div className='row white'>
                     <div className='narrow'>
-                        <p className='speechBubble right' style={{ width: '300px', left: '1rem' }}> It took me quite a while to get up here.</p>
-                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn1.jpg']} />
+                        <p className='speechBubble right' style={{ width: '300px', left: '0', maxWidth: '100%' }}> It took me quite a while to get up here.</p>
+                        <Image alt="" className='panelS' src={images['./ch3_sn03_pn1.jpg']} style={{ paddingTop: '2rem' }} />
                     </div>
                 </div>
                 <div className='row white'>
@@ -143,8 +142,8 @@ export default function Ch3() {
                         <p className='speechBubble rightTop' style={{ position: 'relative' }}>Right.</p>
                     </div>
                     <div className='narrow'>
-                        <Image alt="" className='panelM' src={images['./ch3_sn02_pn1.jpg']} style={{ paddingTop: '5rem' }} />
-                        <p className='speechBubble left' style={{ left: '30%', top: '1rem' }}>
+                        <Image alt="" className='panelM' src={images['./ch3_sn02_pn1.jpg']} style={{ paddingTop: '6rem' }} />
+                        <p className='speechBubble left' style={{ left: '20%', top: '1rem' }}>
                             You can hop over to some more flattering foliage, though.
                             You don&rsquo;t have to stay if you don&rsquo;t want to.
                             Don&rsquo;t let me hold you back.
@@ -152,13 +151,13 @@ export default function Ch3() {
                     </div>
                     <div className='narrow'>
                         <Image alt="" className='hero' src={images['./ch3_sn05_pn0.jpg']} />
-                        <p className='speechBubble right' style={{ left: '40%', top: '50%' }}>
+                        <p className='speechBubble right' style={{ left: '40%', top: '40%', transform: 'translate(-50%, -50%)' }}>
                             I&rsquo;ll stay.
                         </p>
                     </div>
                 </div>
 
-            </article>
+            </article >
         </>
     );
 }

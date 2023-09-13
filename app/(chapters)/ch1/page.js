@@ -33,7 +33,7 @@ export default function Ch1() {
             <div className="row black">
                 <ChapterHeader
                     currentChapter={chapters.one}
-                    style="chapterHeader" />
+                />
             </div>
             <article className={sedgwick.className}>
                 <div className="row black">

@@ -34,8 +34,8 @@ export default function DisturbedSleep() {
     })
 
     return (
-        <div className="row black" id="sn01_disturbed_sleep">
-            <div className="narrow layers">
+        <div className="row black" id="sn01_disturbed_sleep" style={{ overflow: 'hidden' }}>
+            <div className="narrow layers" >
                 <Image alt=""
                     className="main panelL"
                     src={mainImg} />

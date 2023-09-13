@@ -24,7 +24,6 @@ export default function Ch4() {
             <div className='row white'>
                 <ChapterHeader
                     currentChapter={chapters.four}
-                    style="chapterHeader"
                 />
             </div>
             <article className={sedgwick.className}>
@@ -123,8 +122,8 @@ export default function Ch4() {
 
                     </div>
                     <div className='wide'>
-                        <Image alt="" className='hero' src={images['./ch4_sn03_pn8.jpg']} />
-                        <p className='speechBubble right' style={{ left: '15%', bottom: '20%', width: '28rem' }}>
+                        <Image alt="" className='hero' src={images['./ch4_sn03_pn8.jpg']} style={{ paddingBottom: '5rem' }} />
+                        <p className='speechBubble rightTop' style={{ right: '15%', bottom: '0', width: '28rem', maxWidth: '85%' }}>
                             My badass cousin was swallowed by a bluebird right after the photoshoot.
                             Mind you that bird was part of the camera crew.
                         </p>
@@ -140,7 +139,7 @@ export default function Ch4() {
                     </div>
                     <div className='narrow'>
                         <Image alt="" className='panelL' src={images['./ch4_sn04_pn2.jpg']} />
-                        <p className='speechBubble left' style={{ right: '5%', bottom: '35%', width: '18rem' }}>
+                        <p className='speechBubble left' style={{ right: '0', bottom: '35%', width: '18rem' }}>
                             When I was dragging my feet through the seasons, you&rsquo;ve already lived your whole life!
                         </p>
                     </div>

@@ -6,12 +6,12 @@ const rockSalt = Rock_Salt({
     weight: '400'
 })
 
-export default function ChapterHeader({ currentChapter, style }) {
+export default function ChapterHeader({ currentChapter }) {
 
     const { name, title, description } = currentChapter;
 
     return (
-        <header className={style}>
+        <header className="chapterHeader">
             <div>
                 <h1 className={rockSalt.className}>{name}. {title}</h1>
                 <h2>{description}</h2>

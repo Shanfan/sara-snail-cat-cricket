@@ -29,7 +29,6 @@ export default function Ch2() {
             <div className="row white" >
                 <ChapterHeader
                     currentChapter={chapters.two}
-                    style="chapterHeader"
                 />
             </div>
             <article className={sedgwick.className}>

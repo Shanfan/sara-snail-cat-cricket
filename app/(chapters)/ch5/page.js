@@ -47,10 +47,10 @@ export default function Ch5() {
                     </div>
                     <div className='wide'>
                         <Image alt="" className='panelL' src={images['./ch5_sn2_pn3.jpg']} />
-                        <p className='speechBubble right' style={{ left: '20%', top: '20%' }}>
+                        <p className='speechBubble right' style={{ left: '1rem', top: '20%' }}>
                             Mom! Look!
                         </p>
-                        <p className='speechBubble leftTop' style={{ right: '10%', top: '30%', width: '16rem' }}>
+                        <p className='speechBubble leftTop' style={{ right: '1rem', top: '40%', width: '16rem' }}>
                             Ah, snails! They are huddling together to get through the winter.
                         </p>
                     </div>
@@ -74,10 +74,10 @@ export default function Ch5() {
 
                     <div className='wide'>
                         <Image alt="Mom and child keep walking in the woods." className='hero' src={images['./ch5_sn3_pn3.jpg']} />
-                        <p className='speechBubble right' style={{ left: '20%', top: '35%', width: '15rem' }}>
+                        <p className='speechBubble right' style={{ left: '10%', top: '10%', width: '15rem' }}>
                             Do you think they know each other?
                         </p>
-                        <p className='speechBubble left' style={{ right: '18%', top: '45%', width: '12rem' }}>
+                        <p className='speechBubble left' style={{ right: '10%', top: '25%', width: '12rem' }}>
                             Yeah. They must have been friends.
                         </p>
                     </div>
