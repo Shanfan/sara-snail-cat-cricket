@@ -42,6 +42,7 @@ main.puzzle {
 }
 
 .cell {
+    position: relative;
     aspect-ratio: 1;
     border-radius: 0.75rem;
     display: flex;
@@ -52,6 +53,15 @@ main.puzzle {
 .jamGrid img {
     width: 100%;
     height: auto;
+}
+
+.jamGrid img.hint {
+    position: absolute;
+    width: 40%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
 }
 
 button.cell:hover {

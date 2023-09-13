@@ -8,10 +8,12 @@ import cc1 from '@/public/ch2/ch2_sn02_cc1.gif'
 import cc2 from '@/public/ch2/ch2_sn02_cc2.gif'
 import note1 from '@/public/ch2/ch2_sn02_note1.gif'
 import note2 from '@/public/ch2/ch2_sn02_note2.gif'
+import cw from '@/public/cw.svg'
+import ccw from '@/public/ccw.svg'
 
 import styles from './puzzle.module.css'
 
-const { jamGrid, cell, emptyCell, plainCell } = styles
+const { jamGrid, cell, emptyCell, plainCell, hint } = styles
 
 export default function JamSession({ jamState, gameover, count, handleSwitchSara, handleMoveClockwise, handleMoveCounterClockwise }) {
     function RenderJamGrid({ jamState, gameover }) {
@@ -49,7 +51,6 @@ export default function JamSession({ jamState, gameover, count, handleSwitchSara
     }
 
     return (
-
         <div className={`${jamGrid}`}>
             <RenderJamGrid jamState={jamState.slice(0, 4)} gameover={gameover} />
             <CoreCell count={count} switchSara={() => handleSwitchSara()} />
@@ -61,6 +62,11 @@ export default function JamSession({ jamState, gameover, count, handleSwitchSara
 function SaraSing({ onCellClick, gameover }) {
     return (
         <button className={`blue ${cell}`} onClick={onCellClick} disabled={gameover}>
+            <Image
+                alt=''
+                src={cw}
+                className={`${hint}`}
+            />
             <Image
                 alt=''
                 src={ss2}
@@ -78,6 +84,11 @@ function SaraSingFlip({ onCellClick, gameover }) {
         <button className={`${cell} blue`} onClick={onCellClick} disabled={gameover}>
             <Image
                 alt=''
+                src={ccw}
+                className={`${hint}`}
+            />
+            <Image
+                alt=''
                 src={ss2}
                 style={{
                     transformOrigin: 'center bottom',
@@ -93,6 +104,11 @@ function CatShuffle({ onCellClick, gameover }) {
         <button className={`pink ${cell}`} onClick={onCellClick} disabled={gameover}>
             <Image
                 alt=''
+                src={cw}
+                className={`${hint}`}
+            />
+            <Image
+                alt=''
                 src={cc2}
                 style={{
                     transform: 'scale(0.9)'
@@ -105,6 +121,11 @@ function CatShuffle({ onCellClick, gameover }) {
 function CatShuffleFlip({ onCellClick, gameover }) {
     return (
         <button className={`pink ${cell}`} onClick={onCellClick} disabled={gameover}>
+            <Image
+                alt=''
+                src={ccw}
+                className={`${hint}`}
+            />
             <Image
                 alt=''
                 src={cc2}
