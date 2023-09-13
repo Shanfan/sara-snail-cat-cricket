@@ -1,19 +1,17 @@
 'use client'
 import { useState } from 'react'
-import { Player } from '@lottiefiles/react-lottie-player'
-// consider replacing lottie file with GIF...
-// やっばり。。。 lottiefile is better suited for SVG vector animation
+import Image from 'next/image'
 
-import ss1 from '@/public/ch2/ch2_sn02_ss1.json'
-import ss2 from '@/public/ch2/ch2_sn02_ss2.json'
-import cc1 from '@/public/ch2/ch2_sn02_cc3.json'
-import cc2 from '@/public/ch2/ch2_sn02_cc1.json'
-import note1 from '@/public/ch2/ch2_sn02_note1.json'
-import note2 from '@/public/ch2/ch2_sn02_note2.json'
+import ss1 from '@/public/ch2/ch2_sn02_ss1.gif'
+import ss2 from '@/public/ch2/ch2_sn02_ss2.gif'
+import cc1 from '@/public/ch2/ch2_sn02_cc1.gif'
+import cc2 from '@/public/ch2/ch2_sn02_cc2.gif'
+import note1 from '@/public/ch2/ch2_sn02_note1.gif'
+import note2 from '@/public/ch2/ch2_sn02_note2.gif'
 
-import styles from '../../(chapters)/ch2/ch2.module.css'
+import styles from './puzzle.module.css'
 
-const { jamGrid, cell, emptyCell, plainCell, blue, pink, btnGameControl } = styles
+const { jamGrid, cell, emptyCell, plainCell } = styles
 
 export default function JamSession() {
     const [jamState, setJamState] = useState(Array(8).fill(null));
@@ -151,27 +149,26 @@ export default function JamSession() {
     }
 
     return (
-        <div className='row white'>
-            <div className={`${jamGrid} narrow`}>
-                <RenderJamGrid jamState={jamState.slice(0, 4)} gameover={gameover} />
-                <CoreCell count={count} switchSara={() => switchSara()} />
-                <RenderJamGrid jamState={jamState.slice(-4)} gameover={gameover} />
-            </div>
-            <div className='narrow'>
-                <p style={{ paddingBottom: '1em' }}>
-                    Game result: {gameover ? gameover : 'Not yet. Keep moving!'}
-                </p>
-                <button className={`${btnGameControl}`}
-                    disabled={!gameover}
-                    onClick={() => {
-                        setJamState(Array(8).fill(null));
-                        setGameover(false);
-                        setCount(0);
-                        setResult([]);
-                    }}
-                >Play again</button>
-            </div>
-        </div >
+
+        <div className={`${jamGrid}`}>
+            <RenderJamGrid jamState={jamState.slice(0, 4)} gameover={gameover} />
+            <CoreCell count={count} switchSara={() => switchSara()} />
+            <RenderJamGrid jamState={jamState.slice(-4)} gameover={gameover} />
+        </div>
+        // <div> // move this section to <div.instruction>
+        //     <p style={{ paddingBottom: '1em' }}>
+        //         Game result: {gameover ? gameover : 'Not yet. Keep moving!'}
+        //     </p>
+        //     <button className={`${btnGameControl}`}
+        //         disabled={!gameover}
+        //         onClick={() => {
+        //             setJamState(Array(8).fill(null));
+        //             setGameover(false);
+        //             setCount(0);
+        //             setResult([]);
+        //         }}
+        //     >Play again</button>
+        // </div>
     )
 }
 
@@ -225,62 +222,58 @@ function calcCounterClockwisePosition(n) {
 
 function SaraSing({ onCellClick, gameover }) {
     return (
-        <button className={`${cell} ${blue}`} onClick={onCellClick} disabled={gameover}>
-            <Player
-                autoplay
-                loop
+        <button className={`blue ${cell}`} onClick={onCellClick} disabled={gameover}>
+            <Image
+                alt=''
                 src={ss2}
                 style={{
                     transformOrigin: 'center bottom',
                     transform: 'scale(0.8)'
                 }}
-            ></Player>
+            />
         </button>
     )
 }
 
 function SaraSingFlip({ onCellClick, gameover }) {
     return (
-        <button className={`${cell} ${blue}`} onClick={onCellClick} disabled={gameover}>
-            <Player
-                autoplay
-                loop
+        <button className={`${cell} blue`} onClick={onCellClick} disabled={gameover}>
+            <Image
+                alt=''
                 src={ss2}
                 style={{
                     transformOrigin: 'center bottom',
                     transform: 'scale(-0.8, 0.8)'
                 }}
-            ></Player>
+            />
         </button>
     )
 }
 
 function CatShuffle({ onCellClick, gameover }) {
     return (
-        <button className={`${pink} ${cell}`} onClick={onCellClick} disabled={gameover}>
-            <Player
-                autoplay
-                loop
+        <button className={`pink ${cell}`} onClick={onCellClick} disabled={gameover}>
+            <Image
+                alt=''
                 src={cc2}
                 style={{
                     transform: 'scale(0.9)'
                 }}
-            ></Player>
+            />
         </button>
     )
 }
 
 function CatShuffleFlip({ onCellClick, gameover }) {
     return (
-        <button className={`${pink} ${cell}`} onClick={onCellClick} disabled={gameover}>
-            <Player
-                autoplay
-                loop
+        <button className={`pink ${cell}`} onClick={onCellClick} disabled={gameover}>
+            <Image
+                alt=''
                 src={cc2}
                 style={{
                     transform: 'scale(-0.9, 0.9)'
                 }}
-            ></Player>
+            />
         </button>
     )
 }
@@ -288,15 +281,14 @@ function CatShuffleFlip({ onCellClick, gameover }) {
 function Note1() {
     return (
         <div className={`${plainCell}`}>
-            <Player
-                autoplay
-                loop
+            <Image
+                alt=""
                 src={note1}
                 style={{
                     transform: 'scale(0.5)',
                     opacity: 0.7,
                 }}
-            ></Player>
+            />
         </div>
     )
 }
@@ -304,15 +296,14 @@ function Note1() {
 function Note1Flip() {
     return (
         <div className={`${plainCell}`}>
-            <Player
-                autoplay
-                loop
+            <Image
+                alt=''
                 src={note1}
                 style={{
                     transform: 'scale(0.5, -0.5)',
                     opacity: 0.7,
                 }}
-            ></Player>
+            />
         </div>
     )
 }
@@ -321,15 +312,14 @@ function Note2() {
 
     return (
         <div className={`${plainCell}`}>
-            <Player
-                autoplay
-                loop
+            <Image
+                alt=''
                 src={note2}
                 style={{
                     transform: 'scale(0.5)',
                     opacity: 0.7,
                 }}
-            ></Player>
+            />
         </div>
     )
 
@@ -338,15 +328,14 @@ function Note2() {
 function Note2Flip() {
     return (
         <div className={`${plainCell}`}>
-            <Player
-                autoplay
-                loop
+            <Image
+                alt=''
                 src={note2}
                 style={{
                     transform: 'scale(-0.5)',
                     opacity: 0.7,
                 }}
-            ></Player>
+            />
         </div>
     )
 }
@@ -355,33 +344,31 @@ function CoreCell({ count, switchSara }) {
     if (count % 2 === 0) {
         return (
             <button
-                className={`${cell} ${blue}`}
+                className={`${cell} blue`}
                 onClick={switchSara}
             >
-                <Player
-                    autoplay
-                    loop
+                <Image
+                    alt=''
                     src={ss1}
                     style={{
                         transformOrigin: 'center bottom',
-                        transform: 'translateY(2px) scale(0.6)'
+                        transform: 'scale(0.6)'
                     }}
-                ></Player>
+                />
             </button>)
     } else {
         return (
             <button
-                className={`${cell} ${pink}`}
+                className={`${cell} pink`}
                 onClick={switchSara}
             >
-                <Player
-                    autoplay
-                    loop
+                <Image
+                    alt=''
                     src={cc1}
                     style={{
                         transform: 'scale(0.5) translateY(30%)'
                     }}
-                ></Player>
+                />
             </button>
         )
     }

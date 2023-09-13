@@ -151,6 +151,18 @@
     background-color: black;
 }
 
+.blue {
+    background-color: rgb(126, 183, 212);
+}
+
+.pink {
+    background-color: rgb(221, 149, 149);
+}
+
+.yellow {
+    background-color: #EEEAC9;
+}
+
 .layers {
     /* Use this to layer images and create animated effects*/
     position: relative;

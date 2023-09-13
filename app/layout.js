@@ -4,7 +4,7 @@ import { Roboto_Serif } from 'next/font/google'
 const roboto = Roboto_Serif({
   subsets: ['latin'],
   display: 'swap',
-  weight: '300'
+  weight: ['300', '600']
 })
 
 export const metadata = {

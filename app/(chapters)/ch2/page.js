@@ -21,7 +21,7 @@ const sedgwick = Sedgwick_Ave({
     weight: '400'
 })
 
-const { jamGrid, cell, emptyCell } = styles;
+const { jamGrid, cell } = styles;
 
 export default function Ch2() {
     return (
@@ -176,14 +176,14 @@ export default function Ch2() {
                 </div>
                 <div className='row white'>
                     <div className={`${jamGrid} narrow`}>
-                        <Image className={`${cell} panelM`} style={{ gridColumnStart: 2 }} alt="" src={images['./ch2_sn02_ss1.gif']} />
-                        <Image className={`${cell} panelM`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_note2.gif']} />
-                        <Image className={`${cell} panelM`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_cc1.gif']} />
-                        <Image className={`${cell} panelM`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_note2.gif']} />
-                        <Image alt="" className={`${cell} panelM`} style={{ gridRowStart: 3, transform: 'scale(-1, 1)' }} src={images['./ch2_sn02_ss2.gif']} />
-                        <Image alt="" className={`${cell} panelM`} style={{ gridRowStart: 3 }} src={images['./ch2_sn02_note1.gif']} />
-                        <Image alt="" className={`${cell} panelM`} style={{ gridRowStart: 3 }} src={images['./ch2_sn02_ss2.gif']} />
-                        <Image alt="" className={`${cell} panelM`} style={{ gridColumnStart: 2 }} src={images['./ch2_sn02_cc2.gif']} />
+                        <Image className={`${cell} panelM blue`} style={{ gridColumnStart: 2 }} alt="" src={images['./ch2_sn02_ss1.gif']} />
+                        <Image className={`${cell} panelM yellow`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_note1.gif']} />
+                        <Image className={`${cell} panelM pink`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_cc1.gif']} />
+                        <Image className={`${cell} panelM yellow`} style={{ gridRowStart: 2 }} alt="" src={images['./ch2_sn02_note1.gif']} />
+                        <Image alt="" className={`${cell} panelM blue`} style={{ gridRowStart: 3, transform: 'scale(-1, 1)' }} src={images['./ch2_sn02_ss2.gif']} />
+                        <Image alt="" className={`${cell} panelM yellow`} style={{ gridRowStart: 3 }} src={images['./ch2_sn02_note2.gif']} />
+                        <Image alt="" className={`${cell} panelM blue`} style={{ gridRowStart: 3 }} src={images['./ch2_sn02_ss2.gif']} />
+                        <Image alt="" className={`${cell} panelM pink`} style={{ gridColumnStart: 2 }} src={images['./ch2_sn02_cc2.gif']} />
                     </div>
                 </div>
                 <div className='row white'>

@@ -55,8 +55,11 @@
 .wrapper main {
     flex-grow: 1;
     background-color: #EEEAC9;
-    padding: 5%;
     display: flex;
+}
+
+main.extras {
+    padding: 5%;
     flex-direction: column;
     justify-content: center;
 }
@@ -146,4 +149,16 @@
 
 .info p {
     margin-top: 1rem;
+}
+
+.blue {
+    background-color: rgb(126, 183, 212);
+}
+
+.pink {
+    background-color: rgb(221, 149, 149);
+}
+
+.yellow {
+    background-color: #EEEAC9;
 }

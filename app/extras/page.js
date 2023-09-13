@@ -36,16 +36,13 @@ export default function Extras() {
         return info;
     }
 
-    return (<main>
+    return (<main className='extras'>
         <div className="control">
             <button onClick={() => handleClick('puzzle')}>
                 <Image
-                    className='icon'
+                    className={'icon blue'}
                     alt="icon of the music puzze app"
                     src={ss1}
-                    style={{
-                        backgroundColor: 'rgb(126, 183, 212)'
-                    }}
                 />
             </button>
 

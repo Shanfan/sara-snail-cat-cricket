@@ -1,0 +1,104 @@
+main.puzzle {
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.game {
+    width: 60%;
+    max-width: 1000px;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.instruction {
+    width: 40%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.instruction div {
+    background-color: whitesmoke;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border: 2px solid #222;
+    box-shadow: #222 2px 2px 0;
+}
+
+.instruction div p:not(:last-child) {
+    margin-bottom: 1em;
+}
+
+.jamGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+    width: calc(100% - 4rem);
+    margin: 0 auto;
+}
+
+.cell {
+    aspect-ratio: 1;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jamGrid img {
+    width: 100%;
+    height: auto;
+}
+
+button.cell:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.emptyCell {
+    aspect-ratio: 1;
+    border-radius: 0.75rem;
+    border-color: #dad989 #d0b75e #7c813e;
+    border-width: 3px;
+    border-style: dashed;
+}
+
+.plainCell {
+    /* for music notes */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEEAC9;
+    border-color: #dad989 #d0b75e #7c813e;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.btnGameControl {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    color: white;
+}
+
+.btnGameControl:disabled {
+    background-color: #aaa;
+}
+
+.btnGameControl:not(:disabled) {
+    cursor: pointer;
+    background-color: #222;
+}
+
+@media screen and (max-width: 768px) {
+    .game {
+        width: 100%;
+    }
+}
