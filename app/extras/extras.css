@@ -131,7 +131,7 @@ main.extras {
     border-bottom: 1rem solid white;
 }
 
-.info a {
+.infoButton {
     font-size: 1rem;
     padding: 0.75em 1.2em;
     border-radius: 10px;
@@ -140,7 +140,8 @@ main.extras {
     float: right;
 }
 
-.info a:hover {
+.infoButton:hover {
+    cursor: pointer;
     transform: scale(0.95);
     background-color: #222;
     box-shadow: #222 4px 4px 0;

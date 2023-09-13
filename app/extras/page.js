@@ -74,7 +74,7 @@ function InfoBubble({ information }) {
                 <h2>{information.title}</h2>
                 <p>{information.description}</p>
             </div>
-            <Link href={information.href}>Go!</Link>
+            <Link className='infoButton' href={information.href}>Go!</Link>
         </div>
     )
 }
