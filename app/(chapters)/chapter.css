@@ -25,11 +25,11 @@
     background-color: var(--paper-tinted);
 }
 
-.navbar *:last-child {
+/* .navbar *:last-child {
     margin-left: auto;
     border-left: 1px solid var(--ui-border-color);
 
-}
+} */
 
 .navbar div {
     position: relative;
@@ -54,7 +54,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--ui-border-color);
+    border-bottom: 1px solid #000;
 }
 
 .mobileNav button {
@@ -283,7 +283,7 @@
 
     .navbar * {
         font-size: 1.6rem;
-        padding: 1em;
+        padding: 0.5em;
         width: 100%;
         border-bottom: 1px solid var(--ui-border-color);
     }

@@ -13,7 +13,7 @@ const chapterLinks = Object.values(chapters).map(
 
 const navLinks = [
     ...chapterLinks,
-    { 'name': 'Extras', 'href': '/extras' }
+    // { 'name': 'Extras', 'href': '/extras' }
 ]
 
 export default function MobileNav() {

@@ -19,6 +19,7 @@
   line-height: 1.5em;
 }
 
+/* This is the navbar of the landing page */
 .navbar {
   margin-top: auto;
   width: 100%;
@@ -30,11 +31,11 @@
 
 .navbar a {
   font-size: 1.2rem;
-  padding: 2.5em 1.5em;
+  padding: 1em 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid var(--ui-border-color);
+  border-right: 1px solid #000;
   color: black;
   text-decoration: none;
   transition: all 0.2s linear;
@@ -44,7 +45,7 @@
   background-color: var(--paper-tinted);
 }
 
-.navbar a:last-child {
+/* .navbar a:last-child {
   margin-left: auto;
   color: white;
   background-color: #222;
@@ -54,7 +55,7 @@
 .navbar a:last-child:hover {
   text-shadow: #000 0 1px 3px;
   background: linear-gradient(to bottom, #333 0%, #222 50%);
-}
+} */
 
 @media screen and (max-width: 768px) {
   .title span {
@@ -80,7 +81,7 @@
     width: 20vw;
   }
 
-  .navbar a:last-child {
+  /* .navbar a:last-child {
     width: 100%;
-  }
+  } */
 }
