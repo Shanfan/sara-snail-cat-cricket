@@ -10,7 +10,7 @@ export default function Puzzle() {
     const [count, setCount] = useState(0);
     const [result, setResult] = useState([]);
     const [gameover, setGameover] = useState(false);
-    const [instructionState, setInstructionState] = useState('win');
+    const [instructionState, setInstructionState] = useState('gameStart');
 
     function handleReset() {
         setJamState(Array(8).fill(null));
@@ -18,7 +18,6 @@ export default function Puzzle() {
         setResult([]);
         setGameover(false);
         setInstructionState('gameStart');
-        console.log("reset button clicked")
     }
 
     function moveClockwise(name) {
@@ -170,7 +169,7 @@ function Instruction({ instructionState, handleReset }) {
                             Sara Snail and Cat Cricket became friends thanks to their shared love for music and dance.
                         </p>
                         <p>
-                            Click on the tiles and find out what happens when two friends jam together!
+                            Click on the central tile and find out what happens when two friends jam together!
                         </p>
                     </div>
                 </div>

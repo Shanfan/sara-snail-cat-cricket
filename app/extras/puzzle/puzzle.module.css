@@ -43,6 +43,7 @@ main.puzzle {
 
 .cell {
     position: relative;
+    position: relative;
     aspect-ratio: 1;
     border-radius: 0.75rem;
     display: flex;
@@ -61,7 +62,7 @@ main.puzzle {
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.4;
+    opacity: 0.25;
 }
 
 button.cell:hover {

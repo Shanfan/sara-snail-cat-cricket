@@ -12,7 +12,7 @@ export default function ExtrasLayout({ children }) {
                     className='sscclogo'
                     href='/'
                 >
-                    ← Back
+                    ← Back to story
                     <Image
                         alt="The Tale of Sara Snail and Cat Cricket logo"
                         src={ssccLogo}
